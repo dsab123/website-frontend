@@ -1,15 +1,19 @@
 <template>
+  <require from="resources/css/app.css"></require>
+
   <require from="resources/components/header"></require>
   <require from="resources/components/footer"></require>
 
-  <header></header>
+  <div class="content">
+    <header></header>
 
-  <h3>${message}</h3>
+    <h3>${message}</h3>
 
-  <div class="page-host">
-    <router-view></router-view>
+    <div class="page-host">
+      <router-view></router-view>
+    </div>
+
+
+    <footer></footer>
   </div>
-
-
-  <footer></footer>
 </template>

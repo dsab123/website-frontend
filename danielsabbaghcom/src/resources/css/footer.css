@@ -1,0 +1,52 @@
+:root {
+    --separator-color: #818588;
+    --font-family: 'Source Sans Pro';
+}
+
+
+.horizontal-separator {
+    height: 3px;
+    background: var(--separator-color);
+    border-radius: 3px;
+}
+
+.vertical-separator {
+    
+    height: 120px;
+    width: 3px;
+    background: var(--separator-color);
+    border-radius: 3px;
+    display: block;
+    margin-left: 55%;
+    margin-right: auto;
+    
+}
+
+.blurb-text {
+    float:left;
+    font-family: var(--font-family);
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 50%;
+}
+
+.layout {
+    float: left;
+}
+
+.outer-layout {
+    background:yellow;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+/*
+@media screen and (min-width:720px) {
+    .outer-layout {
+        background:pink;
+        margin-left: auto;
+        margin-right: auto;
+        width: 70%;
+    }
+}
+*/
