@@ -5,48 +5,50 @@
 
 
 .horizontal-separator {
-    height: 3px;
+    height: 2px;
     background: var(--separator-color);
     border-radius: 3px;
 }
 
-.vertical-separator {
-    
-    height: 120px;
-    width: 3px;
-    background: var(--separator-color);
-    border-radius: 3px;
-    display: block;
-    margin-left: 55%;
-    margin-right: auto;
-    
+
+
+@media screen and (min-width:720px) {
+    .blurb-text {
+        float:left;
+        font-family: var(--font-family);
+        margin-top: 20px;
+        padding-left: 20px;
+        margin-right: 20px;
+        width: 50%;
+        border-left: 2px solid var(--separator-color);
+    }
 }
 
 .blurb-text {
     float:left;
     font-family: var(--font-family);
     margin-top: 20px;
+    padding-left: 20px;
     margin-right: 20px;
     width: 50%;
+    border-top: 2px solid var(--separator-color);
 }
 
 .layout {
-    float: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .outer-layout {
     background:yellow;
     margin-left: auto;
     margin-right: auto;
-    width: 90%;
 }
-/*
-@media screen and (min-width:720px) {
-    .outer-layout {
-        background:pink;
-        margin-left: auto;
-        margin-right: auto;
-        width: 70%;
-    }
+
+.headshot {
+    margin-top: 15px;
+    margin-right: 20px;
+    float: left;
+    border-radius: 50%;
 }
-*/
