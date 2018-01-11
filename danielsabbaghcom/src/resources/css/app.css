@@ -1,15 +1,9 @@
 .content {
-    background:pink;
-    width: 75%;
+    width: 720px;
     margin-left: auto;
     margin-right: auto;
 }
 
-@media screen and (min-width:720px) {
-    .content {
-        background:yellow;
-        width: 75%;
-        margin-left: auto;
-        margin-right: auto;
-    }
+body {
+    background-color: beige;
 }

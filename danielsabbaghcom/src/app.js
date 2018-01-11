@@ -4,20 +4,26 @@ export class App {
   }
   
   configureRouter(config, router) {
-    config.title = 'Totally a Title';
-    
+    config.title = 'Daniel Sabbagh';
+
     config.map([
       {
         route: ['', 'home'], 
         name: 'home', 
         moduleId: 'resources/components/home', 
-        title: 'totes a home page'
+        title: 'Home'
       },
       {
         route: 'about',
         name: 'about',
         moduleId: 'resources/components/about',
-        title: 'totes an about page'
+        title: 'About'
+      },
+      {
+        route: 'post',
+        name: 'post',
+        moduleId: 'resources/components/post',
+        title: 'Post' // how to get post name in here? might have to do in the post logic
       }
     ]);
     this.router = router;
