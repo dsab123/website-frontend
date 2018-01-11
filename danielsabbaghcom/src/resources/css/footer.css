@@ -3,45 +3,29 @@
     --font-family: 'Source Sans Pro';
 }
 
-
 .horizontal-separator {
     height: 2px;
     background: var(--separator-color);
     border-radius: 3px;
 }
 
-
-
-@media screen and (min-width:720px) {
-    .blurb-text {
-        float:left;
-        font-family: var(--font-family);
-        margin-top: 20px;
-        padding-left: 20px;
-        margin-right: 20px;
-        width: 50%;
-        border-left: 2px solid var(--separator-color);
-    }
-}
-
-.blurb-text {
+.personal-info {
     float:left;
     font-family: var(--font-family);
     margin-top: 20px;
     padding-left: 20px;
     margin-right: 20px;
     width: 50%;
-    border-top: 2px solid var(--separator-color);
+    border-left: 2px solid var(--separator-color);
 }
 
 .layout {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
 }
 
 .outer-layout {
-    background:yellow;
     margin-left: auto;
     margin-right: auto;
 }
@@ -51,4 +35,9 @@
     margin-right: 20px;
     float: left;
     border-radius: 50%;
+}
+
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

@@ -1,15 +1,22 @@
 <template>
     <require from="../css/footer.css"></require>
-
     
     <div class="horizontal-separator"></div>
 
     <div class="outer-layout">
         <div class="layout">
             <div class="headshot-layout">
-                <img class="headshot" src="static/headshot.jpg" width="125" height="125">
+                <img class="headshot" src="static/headshot.jpg" width="150" height="150">
             </div>
-            <div class="blurb-text">${blurbText}</div>
+            
+            <div class="personal-info">
+                <div class="blurb-text">${blurbText}</div>
+                <p>resume</p>
+                <a href="https://github.com/dsab123" target="_blank">
+                <i class="fa fa-github" aria-hidden="true" style="font-size: 1.3em;"></i>   
+                dsab123
+                </a>
+            </div>
         </div>
     </div>
 </template>
