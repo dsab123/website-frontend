@@ -1,11 +1,22 @@
 <template>
   <require from="resources/css/app.css"></require>
 
-  <require from="resources/components/header"></require>
+  
   <require from="resources/components/footer"></require>
+  <require from="resources/css/header.css"></require>
+
+  
 
   <div class="content">
-    <header></header>
+    <p class="title"><a href="">${title}</a></p>
+
+    <ul>
+      <li repeat.for="nav of router.navigation" class="${nav.isActive ? 'active' : ''}">
+        <a href.bind="nav.href">${nav.title}</a>
+      </li>
+    </ul>
+
+    <!--don't forget I can do stuff on hoverOver of router tabs -->
 
     <div class="page-host">
       <router-view></router-view>
