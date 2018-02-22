@@ -1,5 +1,4 @@
 import {inject} from 'aurelia-framework';
-
 import {PostApi} from '../api/postApi';
 
 @inject(PostApi)
@@ -9,14 +8,21 @@ export class Post {
         this.postApi = PostApi;
         this.postId = '1';
 
-        console.log('constructor called');
+        this.postTitle = 'fee fi fo fum';
+        this.postContents = 'foods';
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
         // check for post id from router?
 
-        console.log('postId: ' + this.postId);
+        console.log('post activate called');
+        this.getPostContents();
+        console.log('after postContents set');
+    }
 
-        this.postApi.fetchBlogPost(this.postId);
+    async getPostContents() {
+        this.postApi.fetchBlogPost(this.postId).then((data) => {            
+            this.postContents = data;
+        });
     }
 }
