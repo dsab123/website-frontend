@@ -80,6 +80,11 @@
             "main": "aurelia-testing",
             "env": "dev"
           },
+          {
+            "name": "regenerator-runtime",
+            "path": "../node_modules/regenerator-runtime",
+            "main": "runtime.js"
+          },
           "text"
         ]
       }
@@ -146,6 +151,8 @@
     "attributes": "resources/attributes",
     "valueConverters": "resources/value-converters",
     "bindingBehaviors": "resources/binding-behaviors"
+    
+    
   },
   "testFramework": {
     "id": "jasmine",
