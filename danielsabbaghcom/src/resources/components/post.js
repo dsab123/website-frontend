@@ -14,15 +14,13 @@ export class Post {
 
     activate(urlParams, routeMap, navigationInstruction) {
         // check for post id from router?
-
-        console.log('post activate called');
         this.getPostContents();
-        console.log('after postContents set');
     }
 
     async getPostContents() {
-        this.postApi.fetchBlogPost(this.postId).then((data) => {            
-            this.postContents = data;
+        this.postApi.retrieveBlogPost(this.postId).then((data) => {            
+            this.postContents = data.content;
+            this.postTitle = data.title;
         });
     }
 }

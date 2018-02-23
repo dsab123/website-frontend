@@ -1,6 +1,6 @@
 import {noView} from 'aurelia-framework';
-//import 'fetch';
 import {HttpClient} from 'aurelia-fetch-client';
+import {BlogPost} from '../models/blogPost';
 
 @noView
 export class PostApi {
@@ -9,24 +9,25 @@ export class PostApi {
 
         console.log('postApi constructor, hello');
     }
-
-    fetchBlogPostFake(blogPostId) {
-        console.log('happy noise');
-
-        return [4];
-    }
     
-    async fetchBlogPost(blogPostId) {
+    async retrieveBlogPost(blogPostId) {
+
+        let contents = await this.fetchBlogPostContents(blogPostId);
+
+        return new BlogPost({
+            id: blogPostId, 
+            title: "Fake Post", 
+            content: contents 
+        });
+    }
+
+    async fetchBlogPostContents(blogPostId) {
         // until I design a more intelligent post retrieval
         // scheme (for which I'll move posts from the static
         // assets part of this project to a database or something)
         // I'll just fetch the file from /static or something
 
         console.log('fetchin post ' + blogPostId + " ...");
-
-        // create post filename maybe?
-        // then I can return an actual blogPost object
-
 
         let contents = '';
         await this.httpClient.fetch('https://baconipsum.com/api/?type=meat-and-filler')
