@@ -12,3 +12,4 @@ Next steps:
 2/23/2018:
 - made postApi a bit more robust
 - added /talks route
+- added recent posts functionality to postApi
