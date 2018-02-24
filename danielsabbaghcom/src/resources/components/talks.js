@@ -8,6 +8,7 @@ export class Talks {
     activate(urlParams, routeMap, navigationInstruction) {
         // check for post id from router?
         this.talksList = this.getTalksList();
+        this.blurb = "I'm finding that I'm not all that terrible at learning and teaching stuff. Over the last year or so I've gotten interested in giving tech talks on topics that interest me.";
     }
 
     // will want to retrieve these more intelligently at some point in the future, obvi
