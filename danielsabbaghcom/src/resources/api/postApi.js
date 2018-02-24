@@ -16,7 +16,7 @@ export class PostApi {
 
         return new BlogPost({
             id: blogPostId, 
-            title: "Fake Post", 
+            title: `Fake Post ${blogPostId}`, 
             content: contents 
         });
     }
@@ -26,8 +26,6 @@ export class PostApi {
         // scheme (for which I'll move posts from the static
         // assets part of this project to a database or something)
         // I'll just fetch the file from /static or something
-
-        console.log('fetchin post ' + blogPostId + " ...");
 
         let contents = '';
         await this.httpClient.fetch('https://baconipsum.com/api/?type=meat-and-filler')
