@@ -7,3 +7,8 @@ I'll be using [Aurelia](aurelia.io), a pretty snazzy javascript framework.
 Next steps:
 - add more routes
 - flesh out header and footer
+
+
+2/23/2018:
+- made postApi a bit more robust
+- added /talks route
