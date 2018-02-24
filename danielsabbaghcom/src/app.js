@@ -28,6 +28,13 @@ export class App {
         nav: true,
         moduleId: 'resources/components/post',
         title: 'Post' // how to get post name in here? might have to do in the post logic
+      },
+      {
+        route: 'talks',
+        name: 'talks',
+        nav: true,
+        moduleId: 'resources/components/talks',
+        title: 'Talks'
       }
     ]);
     this.router = router;

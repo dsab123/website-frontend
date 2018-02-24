@@ -1,0 +1,24 @@
+<template>
+    <!-- not currently using this, but might come in handy -->
+    <require from="../value-converters/talks"></require> 
+   
+
+    <h2>This is the talks page!</h2>
+    
+    <ul>
+        <li repeat.for="prop of talksList">
+            ${prop.title}
+            <ul>
+                <li>
+                    ${prop.description}
+                </li>
+                <li>
+                    given on ${prop.date}
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <br>
+
+</template>
