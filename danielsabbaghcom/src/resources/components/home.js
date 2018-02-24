@@ -9,7 +9,7 @@ export class Home {
 
         this.message = "Home";
         this.postsList = [];
-        this.numberOfRecentPostBlurbsToFetch = 3;
+        this.numberOfRecentPostBlurbsToFetch = 10;
     }
 
     activate(urlParams, routeMap, navigationInstruction) {

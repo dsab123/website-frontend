@@ -9,7 +9,7 @@ export class Post {
         this.postId = '1';
 
         this.postTitle = 'fee fi fo fum';
-        this.postContents = 'foods';
+        this.postContents = '';
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
