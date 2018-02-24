@@ -9,6 +9,10 @@ export class PostApi {
         this.httpClient = new HttpClient();
     }
     
+    // method naming scheme - 'fetch' is prefix of any method
+    // that directly uses the fetch client; 'retrieve' is the 
+    // prefix of any method that doesn't
+
     async retrieveBlogPost(blogPostId) {
 
         let contents = await this.fetchBlogPostContents(blogPostId);
@@ -63,4 +67,11 @@ export class PostApi {
         return contents; // should like to substring this
     }
 
+    async retrieveRelatedPostTags(blogPostTags) {
+
+    }
+
+    async fetchRelatedPostTags(blogPostTags) {
+        
+    }
 }
