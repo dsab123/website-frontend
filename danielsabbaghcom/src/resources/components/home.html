@@ -1,3 +1,15 @@
 <template>
-    <h3>this be a homepage, yo</h3>
+    <h2>Home</h2>
+
+    <h4>Recent Posts</h4>
+        <ul>
+            <li repeat.for="post of postsList">
+                ${post.title}
+                <ul>
+                    <li>
+                        ${post.teaser}
+                    </li>
+                </ul>
+            </li>
+        </ul>
 </template>
