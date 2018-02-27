@@ -20,7 +20,8 @@ export class PostApi {
         return new BlogPost({
             id: blogPostId, 
             title: `Fake Post ${blogPostId}`, 
-            content: contents 
+            content: contents,
+            tags: 'food,meat,shark'
         });
     }
 
@@ -67,11 +68,11 @@ export class PostApi {
         return contents; // should like to substring this
     }
 
-    async retrieveRelatedPostTags(blogPostTags) {
+    async retrieveBlogPostsByTag(blogPostTag) {
 
     }
 
-    async fetchRelatedPostTags(blogPostTags) {
-        
+    async fetchBlogPostsByTag(blogPostTag) {
+
     }
 }

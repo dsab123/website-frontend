@@ -8,8 +8,9 @@ export class Post {
         this.postApi = PostApi;
         this.postId = '1';
 
-        this.postTitle = '';
+        this.postTitle = null;
         this.postContents = null;
+        this.postTags = null;
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
@@ -21,6 +22,7 @@ export class Post {
         this.postApi.retrieveBlogPost(this.postId).then((data) => {            
             this.postContents = data.content;
             this.postTitle = data.title;
+            this.postTags = data.tags;
         });
     }
 }
