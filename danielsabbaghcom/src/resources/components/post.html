@@ -1,8 +1,7 @@
 <template>
     <require from="../css/post.css"></require>
-    
-        <!--<require from="../value-converters/talks"></require>-->
-        <require from="../value-converters/post-tags"></require>
+
+    <!--<require from="../value-converters/post-tags"></require>-->
     
     <h2>Post</h2>
 
@@ -11,9 +10,9 @@
     <div class="${postContents ? 'pre-load slide-post-in' : 'pre-load'}">${postContents}</div>
 
     <br>
-    <!--<div if.bind="postTags">related: ${postTags | talks}</div>-->
-    <div if.bind="postTags">related: ${postTags | postTags}</div>
-
+    <div if.bind="postTags">related: 
+            <span class="post-tag" repeat.for="tag of postTags ">${tag}</span>
+    </div>
     <br>
 
 </template>

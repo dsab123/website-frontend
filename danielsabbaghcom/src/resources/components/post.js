@@ -22,7 +22,7 @@ export class Post {
         this.postApi.retrieveBlogPost(this.postId).then((data) => {            
             this.postContents = data.content;
             this.postTitle = data.title;
-            this.postTags = data.tags;
+            this.postTags = data.tags.split(',');
         });
     }
 }

@@ -10,3 +10,9 @@
 .slide-post-in {
 	max-height: 1000px;
 }
+
+.post-tag {
+	background-color: #c5c7ff;	
+	margin-left: 10px;
+	padding: 8px;
+}
