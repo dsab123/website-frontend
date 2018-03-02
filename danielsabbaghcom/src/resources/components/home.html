@@ -1,15 +1,19 @@
 <template>
+    <require from="../css/home.css"></require>
+
     <h2>Home</h2>
 
     <h4>Recent Posts</h4>
         <ul>
             <li repeat.for="post of postsList">
+                <a href="/#/post/${post.id}" class="post-links">
                 ${post.title}
                 <ul>
                     <li>
                         ${post.teaser}
                     </li>
                 </ul>
+                </a>
             </li>
         </ul>
 </template>

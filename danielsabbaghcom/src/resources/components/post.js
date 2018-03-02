@@ -15,14 +15,27 @@ export class Post {
 
     activate(urlParams, routeMap, navigationInstruction) {
         // check for post id from router?
-        this.getPostContents();
+        if (urlParams.postId) {
+            this.getPostContents(urlParams.postId);
+        } else {
+            this.getPostContents();
+        }
+
     }
 
-    async getPostContents() {
-        this.postApi.retrieveBlogPost(this.postId).then((data) => {            
+    async getPostContents(postId) {
+        if (!postId) {
+            postId = this.getDefaultPostId();
+        }
+
+        this.postApi.retrieveBlogPost(postId).then((data) => {            
             this.postContents = data.content;
             this.postTitle = data.title;
             this.postTags = data.tags.split(',');
         });
+    }
+
+    getDefaultPostId() {
+        return 1;
     }
 }

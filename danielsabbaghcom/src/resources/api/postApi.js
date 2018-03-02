@@ -34,7 +34,6 @@ export class PostApi {
         let contents = '';
         await this.httpClient.fetch('https://baconipsum.com/api/?type=meat-and-filler')
             .then(response => {
-                console.log('got response');
                 contents = response.json();
             });        
 
