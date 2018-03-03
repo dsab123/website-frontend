@@ -13,7 +13,11 @@ export class Home {
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
+        // TODO move the determination of this loop's number of iterations 
+        // to postApi's `numberOfBlogPostBlurbsToFetch`
         for (let i = 0; i < this.numberOfRecentPostBlurbsToFetch; i++) {
+
+            // TODO check if instanceof blogPostBlurb
             this.postApi.retrieveBlogPostBlurb(i).then((data) => {        
                 this.postsList.push(data)
             });
