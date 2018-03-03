@@ -17,11 +17,11 @@
     <br>
 
     <!-- TODO when one of these are clicked, set relatedPosts to [] and scroll to top of page -->
-    <div if.bind="relatedPosts.length" class="related-posts">
+    <div if.bind="relatedPosts.length" class="${postContents.length ? 'pre-load slide-post-in related-posts' : 'pre-load related-posts'}">
         <h4>Posts tagged <span>'${selectedRelatedPost}'</span></h4>
         <ul>
             <li repeat.for="post of relatedPosts">
-                <a href="/#/post/${post.id}" class="post-links">
+                <a href="/#/post/${post.id}" click.delegate='resetPost("/#/post/${post.id}")' class="post-links">
                 ${post.title}
                 <ul>
                     <li>

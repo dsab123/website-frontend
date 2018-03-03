@@ -50,6 +50,9 @@ export class Post {
 
 
     async getRelatedPostsByTag(postTag) {
+        // we need to clear out the related posts array, or it'll fill up to infinity
+        this.relatedPosts = [];
+
         this.selectedRelatedPost = postTag;
 
         // TODO implement with this.numberOfRelatedPostBlurbsToFetch
@@ -66,5 +69,24 @@ export class Post {
                 this.relatedPosts.push(data[i]);
             }
         });        
+    }
+
+    resetPost() {
+        this.relatedPosts = [];
+        this.selectedRelatedPost = null;
+        
+        this.resetScroll();
+
+        // apparently you have to return true after from a click delegate for
+        // navigation via href to take place? see
+        // https://github.com/aurelia/router/issues/407
+        return true;   
+    }
+
+    // scrolls to top of page
+    resetScroll() {
+        // TODO animate this
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 }
