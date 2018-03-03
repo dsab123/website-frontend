@@ -17,3 +17,6 @@ Next steps:
 3/1/2018:
 - added basic support for clicking on links and such
 - fixed up /post with postId parameter
+
+3/2/2018:
+- made related post tags clickable
