@@ -38,4 +38,8 @@ export class Post {
     getDefaultPostId() {
         return 1;
     }
+
+
+    async getRelatedPostsByTag(postTag) {
+    }
 }

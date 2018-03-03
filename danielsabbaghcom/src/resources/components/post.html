@@ -11,7 +11,7 @@
 
     <br>
     <div if.bind="postTags">related: 
-            <span class="post-tag" repeat.for="tag of postTags ">${tag}</span>
+        <a class="post-tag" repeat.for="tag of postTags" click.delegate='getRelatedPostsByTag(tag)'>${tag}</a>
     </div>
     <br>
 
