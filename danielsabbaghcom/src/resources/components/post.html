@@ -10,9 +10,27 @@
     <div class="${postContents ? 'pre-load slide-post-in' : 'pre-load'}">${postContents}</div>
 
     <br>
-    <div if.bind="postTags">related: 
+    <div class="post-tags" if.bind="postTags">related: 
         <a class="post-tag" repeat.for="tag of postTags" click.delegate='getRelatedPostsByTag(tag)'>${tag}</a>
     </div>
+
     <br>
+
+    <!-- TODO when one of these are clicked, set relatedPosts to [] and scroll to top of page -->
+    <div if.bind="relatedPosts.length" class="related-posts">
+        <h4>Posts tagged <span>'${selectedRelatedPost}'</span></h4>
+        <ul>
+            <li repeat.for="post of relatedPosts">
+                <a href="/#/post/${post.id}" class="post-links">
+                ${post.title}
+                <ul>
+                    <li>
+                        ${post.teaser}
+                    </li>
+                </ul>
+                </a>
+            </li>
+        </ul>
+    </div>
 
 </template>

@@ -11,10 +11,19 @@
 	max-height: 1000px;
 }
 
+.post-tags {
+	padding: 8px;
+}
+
 .post-tag {
 	background-color: #c5c7ff;	
 	margin-left: 10px;
 	padding: 8px;
 	text-decoration: none;
 	cursor: pointer;
+}
+
+/* TODO reuse the dupe of this class in home */
+.post-links {
+    text-decoration: none;
 }
