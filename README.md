@@ -20,3 +20,6 @@ Next steps:
 
 3/2/2018:
 - made related post tags clickable
+
+3/8/2018:
+- moved nav items to top right of page, added beginnings of logo to site
