@@ -5,5 +5,12 @@
 }
 
 body {
-    background-color: beige;
+    background-color: white;
+}
+
+.header-bar {
+    background: #c7cece;
+    padding-bottom: 3px;
+    padding-top: 10px;
+    margin-top: -8px;
 }

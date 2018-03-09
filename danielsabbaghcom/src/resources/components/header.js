@@ -6,7 +6,7 @@ export class Header {
 
     constructor(Router) {
         this.router = Router;
-        this.title = "Daniel foofoo";
+        this.title = "Daniel Sabbagh";
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
