@@ -1,7 +1,12 @@
+import {inject} from 'aurelia-framework';
+import {Router} from 'aurelia-router';
+
+@inject(Router)
 export class Header {
 
-    constructor() {
-        this.title = "Daniel Sabbagh!";
+    constructor(Router) {
+        this.router = Router;
+        this.title = "Daniel foofoo";
     }
 
     activate(urlParams, routeMap, navigationInstruction) {

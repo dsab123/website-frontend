@@ -3,18 +3,13 @@
 
   
   <require from="resources/components/footer"></require>
-  <require from="resources/css/header.css"></require>
+  <require from="resources/components/header"></require>
+
 
   
 
   <div class="content">
-    <p class="title"><a href="">${title}</a></p>
-
-    <ul>
-      <li repeat.for="nav of router.navigation" class="${nav.isActive ? 'active' : ''}">
-        <a href.bind="nav.href">${nav.title}</a>
-      </li>
-    </ul>
+    <header></header>
 
     <!--don't forget I can do stuff on hoverOver of router tabs -->
 

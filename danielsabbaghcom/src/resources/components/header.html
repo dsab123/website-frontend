@@ -1,5 +1,21 @@
 <template>
     <require from="../css/header.css"></require>
 
-    <p class="title"><a href="">${title}</a></p>
+    <div class="header-bar">
+        
+        <div class="header-top">
+            <a class="title" href="">${title}</a>
+            
+            <div class="nav-items">
+                <a class="nav-item"
+                    repeat.for="nav of router.navigation" 
+                    class="${nav.isActive ? 'active' : ''}" 
+                    href.bind="nav.href">${nav.title}&nbsp;
+                </a>
+            </div>
+            
+        </div>
+
+    </div>
+
 </template>

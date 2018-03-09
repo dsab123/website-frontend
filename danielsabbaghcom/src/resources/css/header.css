@@ -1,6 +1,26 @@
 .title {
     cursor: pointer;
-    font-size: 300;
+    font-size: 350;
     font-weight: 300;
-    color: #00ffff;
+    text-decoration: none;
+    float: left;
+}
+
+.nav-item {
+    text-decoration: none;
+}
+
+.nav-items {
+    float: right;
+}
+
+.header-top {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.header-bar {
+    background: #c7cece;
+    margin-top: 8px;
 }

@@ -1,7 +1,5 @@
 export class App {
   constructor() {
-    this.message = 'Hello World! under this is the router view';
-    this.title = "Daniel Sabbagh!";
   }
   
   configureRouter(config, router) {
