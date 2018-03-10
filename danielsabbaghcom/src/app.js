@@ -21,7 +21,7 @@ export class App {
         title: 'About'
       },
       {
-        route: 'blog/:blogId?',
+        route: 'blog/:postId?',
         name: 'blog',
         nav: true,
         moduleId: 'resources/components/blog',
