@@ -4,7 +4,9 @@
 
     <h2 class="page-title">${postTitle}</h2>
     
-    <div class="${postContents ? 'preload-post slide-post-in' : 'preload-post'}">${postContents}</div>
+    <div class="${postContents ? 'preload-post slide-post-in' : 'preload-post'}"> 
+        <p class="${dimPostContents ? 'dim-overlay' : ''}">${postContents}</p>
+    </div>
 
     <br>
     <div class="post-tags" if.bind="postTags">related: 

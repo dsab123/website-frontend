@@ -62,3 +62,7 @@
 .post-links {
     text-decoration: none;
 }
+
+.dim-overlay {
+	opacity: 0.3;
+}

@@ -12,7 +12,8 @@ export class Blog {
         this.postTitle = null;
         this.postContents = null;
         this.postTags = null;
-        
+        this.dimPostContents = false;
+
         // properties for related posts by tag
         this.relatedPosts = [];
         this.showRelatedPosts = false;
@@ -36,6 +37,9 @@ export class Blog {
 
     // TODO probs don't need this async prefix
     async getPostContents(postId) {
+        // dim postContents to indicate new post incoming
+        this.dimPostContents = true;
+
         if (!postId) {
             postId = this.getDefaultPostId();
         }
@@ -46,6 +50,9 @@ export class Blog {
             this.postContents = data.content;
             this.postTitle = data.title;
             this.postTags = data.tags.split(',');
+
+            // undim post contents
+            this.dimPostContents = false;
         });
     }
 
