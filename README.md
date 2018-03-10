@@ -1,6 +1,6 @@
 ## I am rewriting my personal website.
 
-_The first incarnation of [danielsabbagh.com] appeared when this developer was but a mere neophyte in the ways of the web, and was cobbled together rather inefficiently and with much head-banging. This first incarnation ran quite well despite the feeble ignorant efforts of our developer._
+_The first incarnation of (danielsabbagh.com)[www.danielsabbagh.com] appeared when this developer was but a mere neophyte in the ways of the web, and was cobbled together rather inefficiently and with much head-banging. This first incarnation ran quite well despite the feeble ignorant efforts of our developer._
 
 I've gained more experience in the last 2.5 years since I first created my website, so I figure its high time I rewrote it!
 
@@ -9,6 +9,8 @@ I'll be using [Aurelia](aurelia.io), a pretty snazzy MVVM framework.
 The front end will be rather simple and minimalist. As I'm simultaneously learning about good design, this will be subject to change a lot.
 
 The back end will be for serving post contents. After initially desiring to write an Express back end to serve the posts, I'm thinking that an AWS Lambda-powered event-based back end would be cooler and at least %40 more hip. 
+
+Until I come up with a functional back end, I'll be using [bacon ipsum](baconipsum.com) for post content filler.
 
 I'm planning to host the site on my digital ocean droplet, which has been very good to me over the past few years. 
 
@@ -32,7 +34,7 @@ I'm planning to host the site on my digital ocean droplet, which has been very g
 3/9/2018:
 - prettied up CSS and finished logo
 - prettied up related post functionality
-- became font of using 'prettied'
+- became fond of using 'prettied'
 
 3/10/2018:
 - renamed /post route to /blog
