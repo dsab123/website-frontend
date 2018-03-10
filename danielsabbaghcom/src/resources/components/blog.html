@@ -1,5 +1,5 @@
 <template>
-    <require from="../css/post.css"></require>
+    <require from="../css/blog.css"></require>
 
     <h2 class="page-title">${postTitle}</h2>
     
@@ -17,7 +17,7 @@
         <h4><span>${postsTaggedPrefix}${selectedRelatedPost}</span></h4>
         <ul>
             <li repeat.for="post of relatedPosts">
-                <a href="/#/post/${post.id}" click.delegate='resetPost("/#/post/${post.id}")' class="post-links">
+                <a href="/#/blog/${post.id}" click.delegate='resetPost("/#/blog/${blog.id}")' class="post-links">
                 ${post.title}
                 <ul>
                     <li>

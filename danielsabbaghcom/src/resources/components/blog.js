@@ -3,7 +3,7 @@ import {PostApi} from '../api/postApi';
 import {BlogPostBlurb} from '../models/blogPostBlurb';
 
 @inject(PostApi)
-export class Post {
+export class Blog {
 
     constructor(PostApi) {
         this.postApi = PostApi;
