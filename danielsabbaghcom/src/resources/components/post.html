@@ -3,7 +3,7 @@
 
     <h2 class="page-title">${postTitle}</h2>
     
-    <div class="${postContents ? 'pre-load slide-post-in' : 'pre-load'}">${postContents}</div>
+    <div class="${postContents ? 'preload-post slide-post-in' : 'preload-post'}">${postContents}</div>
 
     <br>
     <div class="post-tags" if.bind="postTags">related: 
@@ -13,7 +13,7 @@
     <br>
 
     <!-- TODO when one of these are clicked, set relatedPosts to [] and scroll to top of page -->
-    <div if.bind="relatedPosts.length" class="${postContents.length ? 'pre-load slide-post-in related-posts' : 'pre-load related-posts'}">
+    <div class="${relatedPosts.length ? 'preload-related-posts slide-related-posts-in related-posts' : 'preload-related-posts related-posts'}">
         <h4>Posts tagged <span>'${selectedRelatedPost}'</span></h4>
         <ul>
             <li repeat.for="post of relatedPosts">
