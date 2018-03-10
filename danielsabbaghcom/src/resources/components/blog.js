@@ -14,20 +14,24 @@ export class Blog {
         this.postTags = null;
         
         // properties for related posts by tag
-        this.postsTaggedPrefix = 'Posts tagged ';
         this.relatedPosts = [];
+        this.showRelatedPosts = false;
         this.selectedRelatedPost = null;
+        this.postsTaggedPrefix = 'Posts tagged ';
         this.numberOfRelatedPostBlurbsToFetch = 5;
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
+        this.hideRelatedPosts();
+
         // check for post id from router?
         if (urlParams.postId) {
             this.getPostContents(urlParams.postId);
         } else {
             this.getPostContents();
         }
-
+        // cannot use this here because window is not available at this point?
+        //this.resetScroll();
     }
 
     // TODO probs don't need this async prefix
@@ -35,7 +39,7 @@ export class Blog {
         if (!postId) {
             postId = this.getDefaultPostId();
         }
-
+    
         this.postApi.retrieveBlogPost(postId).then((data) => {
 
             // TODO check if data instance of blogPost
@@ -52,11 +56,10 @@ export class Blog {
 
     async getRelatedPostsByTag(postTag) {
         // we need to clear out the related posts array, or it'll fill up to infinity
+        // setting relatedPosts to [] will trigger moving the 'related' section down
         this.relatedPosts = [];
         this.selectedRelatedPost = postTag;
-
-        // reset the postsTaggedPrefix?? this is probs cray
-        this.postsTaggedPrefix = 'Posts tagged ';
+        this.showRelatedPosts = true;
 
         // TODO implement with this.numberOfRelatedPostBlurbsToFetch
         this.postApi.retrieveBlogPostBlurbsByTag(postTag).then((data) => {
@@ -74,23 +77,15 @@ export class Blog {
         });        
     }
 
-    resetPost() {
-        this.relatedPosts = [];
-        this.postsTaggedPrefix = '';
-        this.selectedRelatedPost = null;
-        
-        this.resetScroll();
+    hideRelatedPosts() {
+        this.showRelatedPosts = false;
 
-        // apparently you have to return true after from a click delegate for
-        // navigation via href to take place? see
-        // https://github.com/aurelia/router/issues/407
-        return true;   
     }
 
-    // scrolls to top of page
     resetScroll() {
-        // TODO animate this
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = 0;
+        // empty div hook is fastest, but not cleanest; hope I've named it clearly enough!
+        document.querySelector('#empty-div-hook-for-scrolling').scrollIntoView({ 
+            behavior: 'smooth' 
+          });
     }
 }

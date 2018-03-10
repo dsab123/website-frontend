@@ -1,5 +1,6 @@
 <template>
     <require from="../css/blog.css"></require>
+    <div id="empty-div-hook-for-scrolling"></div>
 
     <h2 class="page-title">${postTitle}</h2>
     
@@ -13,11 +14,11 @@
     <br>
 
     <!-- TODO when one of these are clicked, set relatedPosts to [] and scroll to top of page -->
-    <div class="${relatedPosts.length ? 'preload-related-posts slide-related-posts-in related-posts' : 'preload-related-posts related-posts'}">
+    <div class="${showRelatedPosts ? 'preload-related-posts slide-related-posts-in related-posts' : 'preload-related-posts slide-related-posts-out related-posts'}">
         <h4><span>${postsTaggedPrefix}${selectedRelatedPost}</span></h4>
         <ul>
             <li repeat.for="post of relatedPosts">
-                <a href="/#/blog/${post.id}" click.delegate='resetPost("/#/blog/${blog.id}")' class="post-links">
+                <a href="/#/blog/${post.id}" class="post-links">
                 ${post.title}
                 <ul>
                     <li>

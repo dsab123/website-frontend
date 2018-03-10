@@ -37,6 +37,10 @@
 	max-height: 600px;
 }
 
+.slide-related-posts-out {
+	max-height: 0px;
+}
+
 .post-tags {
 	padding-top: 8px;
 	font-family: var(--big-font-family); 
