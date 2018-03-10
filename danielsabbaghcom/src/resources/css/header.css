@@ -3,20 +3,23 @@
     font-weight: 600;
     font-size: 30px;
     text-decoration: none;
+    font-family: 'Merriweather', serif;
 }
 
 .logo-title {
     background: #f57867;
     border-bottom: 3px solid orange;
-    padding-left: 5px;
-    padding-right: 5px;
-    margin-top: -15px;
-    margin-bottom: 15px;
+    padding-left: 6px;
+    padding-top: 5px;
+    padding-right: 6px;
+    padding-bottom: 10px;
     float: left;
 }
 
 .nav-item {
     text-decoration: none;
+    font-family: 'Merriweather', serif;
+    font-size: 20px;
 }
 
 .nav-items {
@@ -30,6 +33,7 @@
 }
 
 .header-bar {
-    background: #c7cece;
-    padding-bottom: 3px;
+    /*background: #d6d8d8;*/
+    background: linear-gradient(#ffffff, #d6d8d8);
+    margin-bottom: 50px;
 }
