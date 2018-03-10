@@ -1,14 +1,22 @@
+:root {
+    --big-font-color: #542189;
+    --big-font-family: 'Merriweather', serif;
+    --logo-background-color: #f57867;
+    --logo-bottom-border-color: orange;
+}
+
 .title {
     cursor: pointer;
     font-weight: 600;
     font-size: 30px;
     text-decoration: none;
-    font-family: 'Merriweather', serif;
+    font-family: var(--big-font-family);
+    color: var(--big-font-color);
 }
 
 .logo-title {
-    background: #f57867;
-    border-bottom: 3px solid orange;
+    background: var(--logo-background-color);
+    border-bottom: 3px solid var(--logo-bottom-border-color);
     padding-left: 6px;
     padding-top: 5px;
     padding-right: 6px;
@@ -18,8 +26,9 @@
 
 .nav-item {
     text-decoration: none;
-    font-family: 'Merriweather', serif;
+    font-family: var(--big-font-family);
     font-size: 20px;
+    --big-font-color: #542189;
 }
 
 .nav-items {
@@ -33,7 +42,6 @@
 }
 
 .header-bar {
-    /*background: #d6d8d8;*/
     background: linear-gradient(#ffffff, #d6d8d8);
     margin-bottom: 50px;
 }

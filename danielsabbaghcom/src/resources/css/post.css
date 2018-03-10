@@ -1,3 +1,9 @@
+:root {
+	--post-tag-color: #f57867;
+	--big-font-color: #542189;
+    --big-font-family: 'Merriweather', serif;
+}
+
 .pre-load {
 	overflow-y: hidden;
 	max-height: 0px; /* approximate max height */
@@ -16,11 +22,14 @@
 }
 
 .post-tag {
-	background-color: #c5c7ff;	
+	background: var(--post-tag-color);
 	margin-left: 10px;
 	padding: 8px;
 	text-decoration: none;
 	cursor: pointer;
+	font-family: var(--big-font-family);
+	color: var(--big-font-color);
+	font-size: 14px;
 }
 
 /* TODO reuse the dupe of this class in home */
