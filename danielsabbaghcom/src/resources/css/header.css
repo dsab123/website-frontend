@@ -1,6 +1,7 @@
 :root {
     --big-font-color: #542189;
     --big-font-family: 'Merriweather', serif;
+    --small-font-family: 'Montserrat', sans-serif;
     --logo-background-color: #f57867;
     --logo-bottom-border-color: orange;
 }
@@ -45,4 +46,22 @@
 .header-bar {
     background: linear-gradient(#ffffff, #d6d8d8);
     margin-bottom: 50px;
+}
+
+.converter {
+    position: absolute;
+    left: 80%;
+    z-index: 2;
+    cursor: pointer;
+    
+}
+
+.converter-arrow {
+    transform: rotate(2deg);
+}
+
+.converter-text {
+    font-family: var(--small-font-family);
+    color: var(--big-font-color);
+    transform: rotate(4deg);
 }

@@ -1,9 +1,14 @@
 <template>
     <require from="../css/header.css"></require>
 
-    <div class="header-bar">
-        
+    <require from="../value-converters/menu-filters"></require>
 
+    <div class="converter" click.delegate="flipConverter()">
+        <img class="converter-arrow"src="../../../static/ugly-arrow.png" height="200" width="200">
+        <p class="converter-text">${convertMenuItemsText}</p>
+    </div>
+      
+    <div class="header-bar">
         <div class="logo-title">
             <a class="title" href="">${title}</a>
         </div>
@@ -13,12 +18,10 @@
                 <a class="nav-item"
                     repeat.for="nav of router.navigation" 
                     class="${nav.isActive ? 'active' : ''}" 
-                    href.bind="nav.href">${nav.title}&nbsp;&nbsp;
+                    href.bind="nav.href">${nav.title | menuFilters : convertNavItems}&nbsp;&nbsp;
                 </a>
             </div>
-            
         </div>
-
     </div>
 
 </template>

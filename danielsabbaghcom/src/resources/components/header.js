@@ -7,10 +7,19 @@ export class Header {
     constructor(Router) {
         this.router = Router;
         this.title = "Daniel Sabbagh";
+
+        // for the silly little value converter for nav items
+        this.convertNavItems = false;
+        this.convertMenuItemsTexts = ["click here, yo!", "click again to undo"];
+        this.convertMenuItemsCounter = 0;
+        this.convertMenuItemsText = this.convertMenuItemsTexts[this.convertMenuItemsCounter];
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
-        console.log('header activate called!');
-    
+    }
+
+    flipConverter() {
+        this.convertNavItems = !this.convertNavItems;
+        this.convertMenuItemsText = this.convertMenuItemsTexts[++this.convertMenuItemsCounter % 2];
     }
 }
