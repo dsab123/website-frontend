@@ -23,3 +23,8 @@ Next steps:
 
 3/8/2018:
 - moved nav items to top right of page, added beginnings of logo to site
+
+3/9/2018:
+- prettied up CSS and finished logo
+- prettied up related post functionality
+- became font of using 'prettied'
