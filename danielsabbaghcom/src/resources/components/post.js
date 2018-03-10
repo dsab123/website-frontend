@@ -12,8 +12,9 @@ export class Post {
         this.postTitle = null;
         this.postContents = null;
         this.postTags = null;
-
+        
         // properties for related posts by tag
+        this.postsTaggedPrefix = 'Posts tagged ';
         this.relatedPosts = [];
         this.selectedRelatedPost = null;
         this.numberOfRelatedPostBlurbsToFetch = 5;
@@ -52,8 +53,10 @@ export class Post {
     async getRelatedPostsByTag(postTag) {
         // we need to clear out the related posts array, or it'll fill up to infinity
         this.relatedPosts = [];
-
         this.selectedRelatedPost = postTag;
+
+        // reset the postsTaggedPrefix?? this is probs cray
+        this.postsTaggedPrefix = 'Posts tagged ';
 
         // TODO implement with this.numberOfRelatedPostBlurbsToFetch
         this.postApi.retrieveBlogPostBlurbsByTag(postTag).then((data) => {
@@ -73,6 +76,7 @@ export class Post {
 
     resetPost() {
         this.relatedPosts = [];
+        this.postsTaggedPrefix = '';
         this.selectedRelatedPost = null;
         
         this.resetScroll();
