@@ -1,28 +1,29 @@
 :root {
-	--post-tag-color: #f57867;
 	--big-font-color: #542189;
 	--big-font-family: 'Merriweather', serif;
 	--small-font-family: 'Montserrat', sans-serif;
-}
-
-.post-links {
-    text-decoration: none;
 }
 
 .page-title {
     font-family: var(--big-font-family);
 }
 
-.recent-posts-subtitle {
+.talks-blurb {
     font-family: var(--small-font-family);
+    font-size: 16px;
 }
 
-.post-title {
+.talk-description {
     font-family: var(--small-font-family);
     font-size: 14px;
 }
 
-.post-teaser {
+.talk-info {
     font-family: var(--small-font-family);
-    font-size: 12px;
+    font-size: 14px;
+}
+
+.talk-title {
+    font-family: var(--small-font-family);  
+    font-size: 16px;
 }

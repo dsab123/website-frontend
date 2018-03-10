@@ -1,20 +1,20 @@
 <template>
     <!-- not currently using this, but might come in handy -->
-    <require from="../value-converters/talks"></require> 
+    <require from="../css/talks.css"></require> 
    
 
-    <h2>Talks</h2>
+    <h2 class="page-title">Talks</h2>
     
-    <h4>${blurb}</h4>
+    <p class="talks-blurb">${blurb}</p>
 
     <ul>
-        <li repeat.for="prop of talksList">
+        <li class="talk-title" repeat.for="prop of talksList">
             ${prop.title}
             <ul>
-                <li>
+                <li class="talk-description">
                     ${prop.description}
                 </li>
-                <li>
+                <li class="talk-info">
                     given on ${prop.date}
                 </li>
             </ul>
