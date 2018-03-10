@@ -1,7 +1,12 @@
 :root {
 	--post-tag-color: #f57867;
 	--big-font-color: #542189;
-    --big-font-family: 'Merriweather', serif;
+	--big-font-family: 'Merriweather', serif;
+	--small-font-family: 'Montserrat', sans-serif;
+}
+
+.post-title {
+	font-family: var(--big-font-family);
 }
 
 .pre-load {
@@ -11,6 +16,7 @@
 	transition-property: all;
 	transition-duration: 1s;
 	transition-timing-function: cubic-bezier(0, .1, 0.5, 1);
+	font-family: var(--small-font-family);
 }
 
 .slide-post-in {
@@ -19,6 +25,8 @@
 
 .post-tags {
 	padding: 8px;
+	font-family: var(--big-font-family); 
+	/* the above is because of the 'related'; I don't want a global p class */
 }
 
 .post-tag {

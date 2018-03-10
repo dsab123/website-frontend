@@ -1,22 +1,21 @@
 :root {
-    --separator-color: #818588;
-    --font-family: 'Source Sans Pro';
+    --separator-color: #e9ad68;
+	--small-font-family: 'Montserrat', sans-serif;
 }
 
 .horizontal-separator {
-    height: 2px;
+    height: 1px;
     background: var(--separator-color);
-    border-radius: 3px;
 }
 
 .personal-info {
     float:left;
-    font-family: var(--font-family);
+    font-family: var(--small-font-family);
     margin-top: 20px;
     padding-left: 20px;
     margin-right: 20px;
     width: 50%;
-    border-left: 2px solid var(--separator-color);
+    
 }
 
 .layout {

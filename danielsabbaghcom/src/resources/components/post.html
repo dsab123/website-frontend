@@ -1,12 +1,8 @@
 <template>
     <require from="../css/post.css"></require>
 
-    <!--<require from="../value-converters/post-tags"></require>-->
+    <h2 class="post-title">${postTitle}</h2>
     
-    <h2>Post</h2>
-
-
-    <h3>${postTitle}</h3>
     <div class="${postContents ? 'pre-load slide-post-in' : 'pre-load'}">${postContents}</div>
 
     <br>
