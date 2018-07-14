@@ -41,3 +41,6 @@ I'm planning to host the site on my digital ocean droplet, which has been very g
 - fixed weird sliding behavior wrt related posts functionality
 - added cool dimming effect when bringing up new post
 - estimated that %70 of front end is complete at this point
+
+7/14/2018:
+- began working on backend, which'll live on AWS API Gateway
