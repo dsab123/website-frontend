@@ -19,12 +19,23 @@ export class PostApi {
 
         let contents = await this.fetchBlogPostContents(blogPostId);
 
+        if (contents != null) {
+            return new BlogPost({
+                id: blogPostId,
+                title: contents.Metadata.Title,
+                content: contents.Content,
+                tags: contents.Metadata.Tags
+            })
+        }
+
+        /*
         return new BlogPost({
             id: blogPostId, 
             title: `Fake Post ${blogPostId}`, 
             content: contents,
             tags: 'food,meat,shark'
         });
+        */
     }
 
     async fetchBlogPostContents(blogPostId) {
@@ -34,7 +45,9 @@ export class PostApi {
         // I'll just fetch the file from /static or something
 
         let contents = '';
-        await this.httpClient.fetch('https://baconipsum.com/api/?type=meat-and-filler')
+        let url = 'https://7dfaiqkhk5.execute-api.us-east-1.amazonaws.com/stage/blogpost/'
+         + blogPostId;
+        await this.httpClient.fetch(url)
             .then(response => {
                 contents = response.json();
             });        
@@ -60,6 +73,7 @@ export class PostApi {
         // I'll just fetch the file from /static or something
 
         let contents = '';
+
         await this.httpClient.fetch('https://baconipsum.com/api/?type=meat-and-filler')
             .then(response => {
                 contents = response.json();
