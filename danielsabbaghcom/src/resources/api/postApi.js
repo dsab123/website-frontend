@@ -2,11 +2,12 @@ import {noView} from 'aurelia-framework';
 import {HttpClient} from 'aurelia-fetch-client';
 import {BlogPost} from '../models/blogPost';
 import {BlogPostBlurb} from '../models/blogPostBlurb';
+import {Api} from './api';
 
 @noView
-export class PostApi {
+export class PostApi extends Api {
     constructor() {
-        this.httpClient = new HttpClient();
+        super();
 
         this.numberOfBlogPostBlurbsToFetch = 5;
     }
@@ -27,15 +28,6 @@ export class PostApi {
                 tags: contents.Metadata.Tags
             })
         }
-
-        /*
-        return new BlogPost({
-            id: blogPostId, 
-            title: `Fake Post ${blogPostId}`, 
-            content: contents,
-            tags: 'food,meat,shark'
-        });
-        */
     }
 
     async fetchBlogPostContents(blogPostId) {
@@ -45,8 +37,7 @@ export class PostApi {
         // I'll just fetch the file from /static or something
 
         let contents = '';
-        let url = 'https://7dfaiqkhk5.execute-api.us-east-1.amazonaws.com/stage/blogpost/'
-         + blogPostId;
+        let url = `${this.baseUrl}blogpost/${blogPostId}`;
         await this.httpClient.fetch(url)
             .then(response => {
                 contents = response.json();
