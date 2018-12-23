@@ -57,7 +57,7 @@ export class PostApi {
 
     async retrieveBlogPostBlurb(blogPostId) {
 
-        let contents = await this.fetchBlogPostContents(blogPostId);
+        let contents = await this.fetchBlogPostBlurbContents(blogPostId);
 
         return new BlogPostBlurb({
             id: blogPostId, 

@@ -49,7 +49,7 @@ export class Blog {
             // TODO check if data instance of blogPost
             this.postContents = data.content;
             this.postTitle = data.title;
-            this.postTags = data.tags;//.join(',');
+            this.postTags = data.tags;
 
             // undim post contents
             this.dimPostContents = false;
