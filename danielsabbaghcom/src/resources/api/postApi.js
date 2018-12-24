@@ -1,5 +1,4 @@
 import {noView} from 'aurelia-framework';
-import {HttpClient} from 'aurelia-fetch-client';
 import {BlogPost} from '../models/blogPost';
 import {BlogPostBlurb} from '../models/blogPostBlurb';
 import {Api} from './api';

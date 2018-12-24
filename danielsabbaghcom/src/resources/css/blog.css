@@ -66,3 +66,7 @@
 .dim-overlay {
 	opacity: 0.3;
 }
+
+.post-contents {
+	white-space: pre-line;    
+}
