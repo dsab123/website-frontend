@@ -16,7 +16,7 @@ export class PostApi extends Api {
         let contents = await this.fetchBlogPost(blogPostId, qs);
         if (contents != null) {
             return new BlogPost({
-                id: contents.id,
+                id: contents.Id,
                 title: contents.Metadata.Title,
                 content: contents.Content,
                 tags: contents.Metadata.Tags

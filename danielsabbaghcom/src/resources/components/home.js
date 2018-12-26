@@ -18,7 +18,7 @@ export class Home {
             // TODO check if instanceof BlogPost
             this.postApi.retrieveBlogPostBlurb(i).then((data) => {
                 if (data.id != -1) {
-                    this.postsList.push(data)
+                    this.postsList.push(data);
                 }
             });
         }
