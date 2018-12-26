@@ -11,69 +11,39 @@ export class PostApi extends Api {
         this.numberOfBlogPostBlurbsToFetch = 5;
     }
     
-    // method naming scheme - 'fetch' is prefix of any method
-    // that directly uses the fetch client; 'retrieve' is the 
-    // prefix of any method that doesn't
+    async retrieveBlogPost(blogPostId, qs = '') {
 
-    async retrieveBlogPost(blogPostId) {
-
-        let contents = await this.fetchBlogPostContents(blogPostId);
-
+        let contents = await this.fetchBlogPost(blogPostId, qs);
         if (contents != null) {
             return new BlogPost({
-                id: blogPostId,
+                id: contents.id,
                 title: contents.Metadata.Title,
                 content: contents.Content,
                 tags: contents.Metadata.Tags
-            })
+            });
         }
     }
 
-    async fetchBlogPostContents(blogPostId) {
-        // until I design a more intelligent post retrieval
-        // scheme (for which I'll move posts from the static
-        // assets part of this project to a database or something)
-        // I'll just fetch the file from /static or something
-
+    async fetchBlogPost(blogPostId, qs) {
         let contents = '';
-        let url = `${this.baseUrl}blogpost/${blogPostId}`;
+        let url = `${this.baseUrl}blogpost/${blogPostId}${qs}`;
         await this.httpClient.fetch(url)
             .then(response => {
                 contents = response.json();
-            });        
+            });                    
 
         return contents;
     }
 
     async retrieveBlogPostBlurb(blogPostId) {
-
-        let contents = await this.fetchBlogPostBlurbContents(blogPostId);
-
-        return new BlogPostBlurb({
-            id: blogPostId, 
-            title: `Fake Post ${blogPostId}`, 
-            teaser: contents[0].substr(0, 40) + "..."
-        });
-    }
-
-    async fetchBlogPostBlurbContents(blogPostId) {
-        // until I design a more intelligent post retrieval
-        // scheme (for which I'll move posts from the static
-        // assets part of this project to a database or something)
-        // I'll just fetch the file from /static or something
-
-        let contents = '';
-
-        await this.httpClient.fetch('https://baconipsum.com/api/?type=meat-and-filler')
-            .then(response => {
-                contents = response.json();
-            });        
-
-        return contents; // should like to substring this
+        let qs = "?blurb=true"; // gotta be a better way
+ 
+        return this.retrieveBlogPost(blogPostId, qs);
     }
 
     async retrieveBlogPostBlurbsByTag(blogPostTag) {
         let blogPostBlurbs = [];
+        // soon will be: 
         //let contents = await this.fetchBlogPostBlurbsByTag(blogPostTag);
         let contents = new Array(5);
 
@@ -86,16 +56,6 @@ export class PostApi extends Api {
                 title: `Fake Post ${i}`, 
                 teaser: "in a land far far away, where the back end is completed..."
             }));
-
-            // TODO not sure how to resolve promise one by one, so I am doing this
-            // terrible thing. fix it
-            /*
-            blogPostBlurbs.push(new BlogPostBlurb({
-                id: i, 
-                title: `Fake Post ${i}`, 
-                teaser: contents[0].substr(0, 40) + "..."
-            }));
-            */
         }
     
         return blogPostBlurbs;
