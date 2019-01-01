@@ -7,7 +7,7 @@
     <ul>
         <li class="post-title" repeat.for="post of postsList">
             <a href="/#/blog/${post.id}" class="post-links">
-            ${post.title}
+            ${post.metadata.title}
             <ul>
                 <li class="post-teaser">
                     ${post.content}

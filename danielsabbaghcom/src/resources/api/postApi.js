@@ -1,5 +1,6 @@
 import {noView} from 'aurelia-framework';
 import {BlogPost} from '../models/blogPost';
+import {Metadata} from '../models/metadata';
 import {BlogPostBlurb} from '../models/blogPostBlurb';
 import {Api} from './api';
 
@@ -16,10 +17,14 @@ export class PostApi extends Api {
         let contents = await this.fetchBlogPost(blogPostId, qs);
         if (contents != null) {
             return new BlogPost({
-                id: contents.Id,
-                title: contents.Metadata.Title,
-                content: contents.Content,
-                tags: contents.Metadata.Tags
+                id: contents.id,
+                content: contents.content,
+                metadata: new Metadata({
+                    id: contents.id,
+                    title: contents.metadata.title,
+                    tags: contents.metadata.tags
+                }),
+                relatedPosts: contents.relatedPosts
             });
         }
     }

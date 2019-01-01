@@ -10,7 +10,7 @@
 
     <br>
     <div class="post-tags" if.bind="postTags">related: 
-        <a class="post-tag" repeat.for="tag of postTags" click.delegate='getRelatedPostsByTag(tag)'>${tag}</a>
+        <a class="post-tag" repeat.for="tag of postTags" click.delegate='showRelatedPostsByTag(tag)'>${tag}</a>
     </div>
 
     <br>
@@ -19,12 +19,12 @@
     <div class="${showRelatedPosts ? 'preload-related-posts slide-related-posts-in related-posts' : 'preload-related-posts slide-related-posts-out related-posts'}">
         <h4><span>${postsTaggedPrefix}${selectedRelatedPost}</span></h4>
         <ul>
-            <li repeat.for="post of relatedPosts">
+            <li repeat.for="post of filteredRelatedPosts">
                 <a href="/#/blog/${post.id}" class="post-links">
-                ${post.title}
+                ${post.metadata.title}
                 <ul>
                     <li>
-                        ${post.teaser}
+                        ${post.content}
                     </li>
                 </ul>
                 </a>

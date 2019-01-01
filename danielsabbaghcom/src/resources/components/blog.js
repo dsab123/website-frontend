@@ -16,6 +16,7 @@ export class Blog {
 
         // properties for related posts by tag
         this.relatedPosts = [];
+        this.filteredRelatedPosts = [];
         this.showRelatedPosts = false;
         this.selectedRelatedPost = null;
         this.postsTaggedPrefix = 'Posts tagged ';
@@ -23,7 +24,7 @@ export class Blog {
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
-        this.hideRelatedPosts();
+        this.hideRelatedPostsByTag();
 
         // check for post id from router?
         if (urlParams.postId) {
@@ -48,8 +49,9 @@ export class Blog {
 
             // TODO check if data instance of blogPost
             this.postContents = data.content;
-            this.postTitle = data.title;
-            this.postTags = data.tags;
+            this.postTitle = data.metadata.title;
+            this.postTags = data.metadata.tags;
+            this.relatedPosts = data.relatedPosts;
 
             // undim post contents
             this.dimPostContents = false;
@@ -60,7 +62,7 @@ export class Blog {
         return 1;
     }
 
-
+/*
     async getRelatedPostsByTag(postTag) {
         // we need to clear out the related posts array, or it'll fill up to infinity
         // setting relatedPosts to [] will trigger moving the 'related' section down
@@ -83,8 +85,18 @@ export class Blog {
             }
         });        
     }
+*/
 
-    hideRelatedPosts() {
+    showRelatedPostsByTag(postTag) {
+        this.selectedRelatedPost = postTag;
+
+        this.filteredRelatedPosts = this.relatedPosts.filter(post => post.metadata.tags.includes(postTag));
+        this.showRelatedPosts = true;
+
+
+    }
+
+    hideRelatedPostsByTag() {
         this.showRelatedPosts = false;
 
     }
