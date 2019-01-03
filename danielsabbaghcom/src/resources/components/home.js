@@ -16,7 +16,7 @@ export class Home {
         for (let i = 0; i < this.numberOfRecentPostBlurbsToFetch; i++) {
 
             // TODO check if instanceof BlogPost
-            await this.postApi.retrieveBlogPostBlurb(i).then((data) => {
+            this.postApi.retrieveBlogPostBlurb(i).then((data) => {
                 if (data.id != -1) {
                     this.postsList.push(data);
                 }

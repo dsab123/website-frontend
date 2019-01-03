@@ -90,10 +90,10 @@ export class Blog {
     showRelatedPostsByTag(postTag) {
         this.selectedRelatedPost = postTag;
 
-        this.filteredRelatedPosts = this.relatedPosts.filter(post => post.metadata.tags.includes(postTag));
-        this.showRelatedPosts = true;
-
-
+        if (this.relatedPosts.length > 0) {
+            this.filteredRelatedPosts = this.relatedPosts.filter(post => post.metadata.tags.includes(postTag));
+            this.showRelatedPosts = true;
+        }
     }
 
     hideRelatedPostsByTag() {

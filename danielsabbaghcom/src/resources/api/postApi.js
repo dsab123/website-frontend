@@ -15,6 +15,7 @@ export class PostApi extends Api {
     async retrieveBlogPost(blogPostId, qs = '') {
 
         let contents = await this.fetchBlogPost(blogPostId, qs);
+
         if (contents != null) {
             return new BlogPost({
                 id: contents.id,
@@ -26,6 +27,8 @@ export class PostApi extends Api {
                 }),
                 relatedPosts: contents.relatedPosts
             });
+        } else {
+            return BlogPost.createErrorBlogPost(); // how to return error object?
         }
     }
 

@@ -11,4 +11,16 @@ export class BlogPost {
         this.relatedPosts = {};
         Object.assign(this, data);
     }
+
+    static createErrorBlogPost() {
+        let blogPost = new BlogPost();
+        blogPost.id = -1;
+        blogPost.content = 'Looks like there was an error somewhere. \n\nShhh.\n\nDon\'t tell anyone.',
+        blogPost.metadata = {
+            'title' : 'Whoops, something happened',
+            'tags' : ['error handling']
+        }
+        
+        return blogPost;
+    }
 }
