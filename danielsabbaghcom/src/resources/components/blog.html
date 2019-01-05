@@ -1,11 +1,15 @@
 <template>
     <require from="../css/blog.css"></require>
+    <require from="aurelia-markdown"></require>
     <div id="empty-div-hook-for-scrolling"></div>
 
     <h2 class="page-title">${postTitle}</h2>
     
     <div class="${postContents ? 'preload-post slide-post-in post-contents' : 'preload-post post-contents'}"> 
-        <p class="${dimPostContents ? 'dim-overlay post-contents' : 'post-contents'}">${postContents}</p>
+            <p class="${dimPostContents ? 'dim-overlay post-contents' : 'post-contents'}">
+                <markdown class="post-contents-container" ref="postContentsContainer">
+                </markdown>
+            </p>
     </div>
 
     <br>

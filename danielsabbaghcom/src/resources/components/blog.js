@@ -1,6 +1,7 @@
 import {inject} from 'aurelia-framework';
 import {PostApi} from '../api/postApi';
 import {BlogPostBlurb} from '../models/blogPostBlurb';
+let showdown = require('showdown');
 
 @inject(PostApi)
 export class Blog {
@@ -23,15 +24,16 @@ export class Blog {
         this.numberOfRelatedPostBlurbsToFetch = 5;
     }
 
-    activate(urlParams, routeMap, navigationInstruction) {
+    async activate(urlParams, routeMap, navigationInstruction) {
         this.hideRelatedPostsByTag();
 
         // check for post id from router?
         if (urlParams.postId) {
-            this.getPostContents(urlParams.postId);
+            await this.getPostContents(urlParams.postId);
         } else {
             this.getPostContents();
         }
+        
         // cannot use this here because window is not available at this point?
         //this.resetScroll();
     }
@@ -46,9 +48,14 @@ export class Blog {
         }
     
         this.postApi.retrieveBlogPost(postId).then((data) => {
+            let converter = new showdown.Converter({
+                simpleLineBreaks: 'true'
+            });
 
             // TODO check if data instance of blogPost
-            this.postContents = data.content;
+            this.postContents = converter.makeHtml(data.content);
+            this.setPostContentsContainer();
+
             this.postTitle = data.metadata.title;
             this.postTags = data.metadata.tags;
             this.relatedPosts = data.relatedPosts;
@@ -58,34 +65,13 @@ export class Blog {
         });
     }
 
+    setPostContentsContainer() {
+        this.postContentsContainer.innerHTML = this.postContents;
+    }
+
     getDefaultPostId() {
         return 1;
     }
-
-/*
-    async getRelatedPostsByTag(postTag) {
-        // we need to clear out the related posts array, or it'll fill up to infinity
-        // setting relatedPosts to [] will trigger moving the 'related' section down
-        this.relatedPosts = [];
-        this.selectedRelatedPost = postTag;
-        this.showRelatedPosts = true;
-
-        // TODO implement with this.numberOfRelatedPostBlurbsToFetch
-        this.postApi.retrieveBlogPostBlurbsByTag(postTag).then((data) => {
-            if (!Array.isArray(data)) {
-                console.log('ERROR: data is not array');
-            }
-
-            for (let i = 0; i < data.length; i++) {
-                if (!data[i] instanceof BlogPostBlurb) {
-                    console.log('ERROR: data[i] is not instance of BlogPostBlurb');    
-                }
-
-                this.relatedPosts.push(data[i]);
-            }
-        });        
-    }
-*/
 
     showRelatedPostsByTag(postTag) {
         this.selectedRelatedPost = postTag;

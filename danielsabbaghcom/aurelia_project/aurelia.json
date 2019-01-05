@@ -85,7 +85,22 @@
             "path": "../node_modules/regenerator-runtime",
             "main": "runtime.js"
           },
-          "text"
+          "marked",
+          "text",
+          {
+            "name": "aurelia-markdown",
+            "path": "../node_modules/aurelia-markdown/dist/amd",
+            "main": "aurelia-markdown"
+          },
+          "showdown",
+          {
+            "name": "prismjs",
+            "path": "../node_modules/prismjs",
+            "main": "prism",
+            "resources": [
+              "themes/prism.css"
+            ]
+          }
         ]
       }
     ],
@@ -151,8 +166,6 @@
     "attributes": "resources/attributes",
     "valueConverters": "resources/value-converters",
     "bindingBehaviors": "resources/binding-behaviors"
-    
-    
   },
   "testFramework": {
     "id": "jasmine",
