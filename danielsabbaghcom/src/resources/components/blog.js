@@ -38,6 +38,10 @@ export class Blog {
         //this.resetScroll();
     }
 
+    attached() {
+        this.setPostContentsContainer();
+    }
+
     // TODO probs don't need this async prefix
     async getPostContents(postId) {
         // dim postContents to indicate new post incoming
@@ -66,7 +70,9 @@ export class Blog {
     }
 
     setPostContentsContainer() {
-        this.postContentsContainer.innerHTML = this.postContents;
+        if (this.postContentsContainer) {
+            this.postContentsContainer.innerHTML = this.postContents;
+        }
     }
 
     getDefaultPostId() {

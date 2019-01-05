@@ -28,12 +28,17 @@ export class PostApi extends Api {
                 relatedPosts: contents.relatedPosts
             });
         } else {
-            return BlogPost.createErrorBlogPost(); // how to return error object?
+            return BlogPost.createErrorBlogPost();
         }
     }
 
     async fetchBlogPost(blogPostId, qs) {
         let contents = '';
+
+        if (isNaN(blogPostId)) {
+            return null;
+        }
+
         let url = `${this.baseUrl}blogpost/${blogPostId}${qs}`;
         await this.httpClient.fetch(url)
             .then(response => {
@@ -68,7 +73,7 @@ export class PostApi extends Api {
     
         return blogPostBlurbs;
     }
-
+/*
     async fetchBlogPostBlurbsByTag(blogPostTag) {
         let contents = [];
 
@@ -85,4 +90,5 @@ export class PostApi extends Api {
 
         return contents;
     }
+*/
 }
