@@ -9,6 +9,7 @@ export class Talks {
         // check for post id from router?
         this.talksList = this.getTalksList();
         this.blurb = "I'm finding that I'm not all that terrible at learning and teaching stuff. Over the last year or so I've gotten interested in giving tech talks on topics that interest me.";
+        this.paragraph = "I've given talks on a wide variety of topics relating to Unit Testing - on the frontend using Karma, on the backend using NUnit/NSubstitute, and on refactoring code to make unit testing easier.";
     }
 
     // will want to retrieve these more intelligently at some point in the future, obvi

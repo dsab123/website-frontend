@@ -1,3 +1,8 @@
+
+[![CircleCI](https://circleci.com/gh/dsab123/website.svg?style=svg)](https://circleci.com/gh/dsab123/website)
+
+-----------------------------
+
 ## I am rewriting my personal website.
 
 _The first incarnation of [danielsabbagh.com](www.danielsabbagh.com) appeared when this developer was but a mere neophyte in the ways of the web, and was cobbled together rather inefficiently and with much head-banging. This first incarnation ran quite well despite the feeble ignorant efforts of our developer._

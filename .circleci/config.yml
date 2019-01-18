@@ -1,0 +1,65 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 1
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:9.6.1
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/project/danielsabbaghcom
+
+    steps:
+      - checkout:
+            path: ~/project
+
+      # this is because the ip address for github in the checkout step is wrong
+#      - run: 
+#          name: turn off StrictHostKeyChecking
+#          command: 'ssh -T -v -o StrictHostKeyChecking=no git@github.com'
+
+#      - run: 
+#          name: cat ssh config
+#          command: 'cat ~/.ssh/config'
+
+#      - run: 
+#          name: cat known_hosts
+#          command: 'cat ~/.ssh/known_hosts'
+
+      - add_ssh_keys:
+          fingerprints:
+          - "81:fa:76:e5:36:37:10:52:bd:8a:a2:75:54:30:a7:ce"
+
+      - run: 
+          name: cat known_hosts
+          command: 'cat ~/.ssh/known_hosts'
+
+      - run: 
+          name: install aurelia cli
+          command: 'sudo npm install -g aurelia-cli'
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+
+      - run: 
+          name: au-build
+          command: 'au build --env prod'
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+        
+      # run tests!
+      - run: au test
+
+

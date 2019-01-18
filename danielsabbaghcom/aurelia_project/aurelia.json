@@ -85,7 +85,6 @@
             "path": "../node_modules/regenerator-runtime",
             "main": "runtime.js"
           },
-          "marked",
           "text",
           {
             "name": "aurelia-markdown",
