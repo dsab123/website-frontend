@@ -11,7 +11,7 @@ I read and write a lot these days, and want to bring myself to think critically 
 
 I'm exercising my understanding of both **Domain-Driven Design** and **AWS services** by building this site.
 
-I've been doing a lot of learning about (domain-driven design)[https://en.wikipedia.org/wiki/Domain-driven_design] (DDD)  (this book)[https://www.infoq.com/minibooks/domain-driven-design-quickly]. I've started working on a project at work that is very DDD, and the deep level at which the models in the domain are well-known across the stakeholders.
+I've been doing a lot of learning about [domain-driven design](https://en.wikipedia.org/wiki/Domain-driven_design) (DDD)  [this book](https://www.infoq.com/minibooks/domain-driven-design-quickly). I've started working on a project at work that is very DDD, and the deep level at which the models in the domain are well-known across the stakeholders.
 
 This blog is designed around the BlogPost model. A BlogPost is, as you can imagine, a model for a blog post. The BlogPost properties are:
 
@@ -25,4 +25,4 @@ public List<BlogPost> RelatedPosts
 
 There are other models involved as well, but the BlogPost model is the most prominent.
 
-The backend of the site is serverless, being hosted by some cool sweet AWS services, which I'll write about in the backend project at a later date. That code lives (here)[https://github.com/dsab123/website-backend-blogposthandler].
+The backend of the site is serverless, being hosted by some cool sweet AWS services, which I'll write about in the backend project at a later date. That code lives [here](https://github.com/dsab123/website-backend-blogposthandler).
