@@ -1,46 +1,28 @@
 ## I am rewriting my personal website.
 
-_The first incarnation of (danielsabbagh.com)[www.danielsabbagh.com] appeared when this developer was but a mere neophyte in the ways of the web, and was cobbled together rather inefficiently and with much head-banging. This first incarnation ran quite well despite the feeble ignorant efforts of our developer._
+_The first incarnation of [danielsabbagh.com](www.danielsabbagh.com) appeared when this developer was but a mere neophyte in the ways of the web, and was cobbled together rather inefficiently and with much head-banging. This first incarnation ran quite well despite the feeble ignorant efforts of our developer._
 
-I've gained more experience in the last 2.5 years since I first created my website, so I figure its high time I rewrote it!
+I've gained more experience in the last 3 years since I first created my website, so I figure its high time I rewrote it!
 
-I'll be using [Aurelia](aurelia.io), a pretty snazzy MVVM framework.
+### What it is
+The site is my personal blog.
 
-The front end will be rather simple and minimalist. As I'm simultaneously learning about good design, this will be subject to change a lot.
+I read and write a lot these days, and want to bring myself to think critically about what I take in. And, who knows? Maybe my thoughts will prove useful for some people out there.
 
-The back end will be for serving post contents. After initially desiring to write an Express back end to serve the posts, I'm thinking that an AWS Lambda-powered event-based back end would be cooler and at least %40 more hip. 
+I'm exercising my understanding of both **Domain-Driven Design** and **AWS services** by building this site.
 
-Until I come up with a functional back end, I'll be using [bacon ipsum](baconipsum.com) for post content filler.
+I've been doing a lot of learning about (domain-driven design)[https://en.wikipedia.org/wiki/Domain-driven_design] (DDD)  (this book)[https://www.infoq.com/minibooks/domain-driven-design-quickly]. I've started working on a project at work that is very DDD, and the deep level at which the models in the domain are well-known across the stakeholders.
 
-I'm planning to host the site on my digital ocean droplet, which has been very good to me over the past few years. 
+This blog is designed around the BlogPost model. A BlogPost is, as you can imagine, a model for a blog post. The BlogPost properties are:
 
-## Changelog
+```
+public int Id
+public string Content
+public bool Blurb
+public Metadata Metadata
+public List<BlogPost> RelatedPosts
+```
 
-2/23/2018:
-- made postApi a bit more robust
-- added /talks route
-- added recent posts functionality to postApi
+There are other models involved as well, but the BlogPost model is the most prominent.
 
-3/1/2018:
-- added basic support for clicking on links and such
-- fixed up /post with postId parameter
-
-3/2/2018:
-- made related post tags clickable
-
-3/8/2018:
-- moved nav items to top right of page, added beginnings of logo to site
-
-3/9/2018:
-- prettied up CSS and finished logo
-- prettied up related post functionality
-- became fond of using 'prettied'
-
-3/10/2018:
-- renamed /post route to /blog
-- fixed weird sliding behavior wrt related posts functionality
-- added cool dimming effect when bringing up new post
-- estimated that %70 of front end is complete at this point
-
-7/14/2018:
-- began working on backend, which'll live on AWS API Gateway
+The backend of the site is serverless, being hosted by some cool sweet AWS services, which I'll write about in the backend project at a later date. That code lives (here)[https://github.com/dsab123/website-backend-blogposthandler].
