@@ -9,18 +9,44 @@ export class Home {
 
         this.message = "Home";
         this.postsList = [];
+
+        this.isLoading = true;
+        this.loadingText = 'Loading';
+
         this.numberOfRecentPostBlurbsToFetch = 10;
     }
 
-    activate(urlParams, routeMap, navigationInstruction) {
+    sleep(milliseconds) {
+        return new Promise(resolve => setTimeout(resolve, milliseconds))
+    }
+
+    async getMostRecentBlogPostBlurbs() {
         for (let i = 0; i < this.numberOfRecentPostBlurbsToFetch; i++) {
 
             // TODO check if instanceof BlogPost
-            this.postApi.retrieveBlogPostBlurb(i).then((data) => {
+            await this.postApi.retrieveBlogPostBlurb(i).then((data) => {
                 if (data.id != -1) {
                     this.postsList.push(data);
                 }
             });
+        }
+    }
+
+    activate(urlParams, routeMap, navigationInstruction) {
+        this.spinLoadingText();
+
+        this.getMostRecentBlogPostBlurbs().then(() => {
+            this.isLoading = false;
+        });
+    }
+
+    async spinLoadingText() {
+        let dots = ['.', '..', '...', '..'];
+        let count = 0;
+
+        while (this.isLoading) {
+            this.loadingText = "Loading" + dots[count++ % 4];            
+            await this.sleep(400);
         }
     }
 }
