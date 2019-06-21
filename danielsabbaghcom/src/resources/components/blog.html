@@ -13,8 +13,8 @@
     </div>
 
     <br>
-    <div class="post-tags" if.bind="postTags">related: 
-        <a class="post-tag" repeat.for="tag of postTags" click.delegate='showRelatedPostsByTag(tag)'>${tag}</a>
+    <div class="post-tags" show.bind="postTags">related:
+        <a class="post-tag" repeat.for="tag of postTags" click.delegate='showRelatedPostsByTag(tag, !showRelatedPosts)'>${tag}</a>
     </div>
 
     <br>

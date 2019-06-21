@@ -25,8 +25,6 @@ export class Blog {
     }
 
     async activate(urlParams, routeMap, navigationInstruction) {
-        this.hideRelatedPostsByTag();
-
         // check for post id from router?
         if (urlParams.postId) {
             await this.getPostContents(urlParams.postId);
@@ -79,18 +77,20 @@ export class Blog {
         return 1;
     }
 
-    showRelatedPostsByTag(postTag) {
-        this.selectedRelatedPost = postTag;
+    showRelatedPostsByTag(postTag, shouldShowRelatedPosts) {
+        if (shouldShowRelatedPosts == true) {
+            if (this.relatedPosts.length > 0) {
+                this.filteredRelatedPosts = this.relatedPosts.filter(post => post.metadata.tags.includes(postTag));
+                this.showRelatedPosts = true;
+            }
+        } 
 
-        if (this.relatedPosts.length > 0) {
-            this.filteredRelatedPosts = this.relatedPosts.filter(post => post.metadata.tags.includes(postTag));
-            this.showRelatedPosts = true;
+        // only collapse the section if its the same postTag as before, and we were showing relatedPosts
+        if (this.selectedRelatedPost == postTag && this.showRelatedPosts == true) {
+            this.showRelatedPosts = shouldShowRelatedPosts;
         }
-    }
 
-    hideRelatedPostsByTag() {
-        this.showRelatedPosts = false;
-
+        this.selectedRelatedPost = postTag;
     }
 
     resetScroll() {

@@ -3,11 +3,11 @@
 
     <h2 class="page-title">Home</h2>
 
-    <div if.bind="isLoading">
+    <div show.bind="isLoading">
         <h3 class="loading-text">${loadingText}</h3>
     </div>
 
-    <div if.bind="!isLoading">
+    <div show.bind="!isLoading">
         <h4 class="recent-posts-subtitle">Recent Posts</h4>
         <ul>
             <li class="post-title" repeat.for="post of postsList">
