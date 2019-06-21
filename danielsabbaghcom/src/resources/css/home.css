@@ -9,7 +9,8 @@
     text-decoration: none;
 }
 
-.page-title {
+.page-title, 
+.loading-text {
     font-family: var(--big-font-family);
 }
 
