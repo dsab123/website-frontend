@@ -1,7 +1,7 @@
 export class App {
   constructor() {
   }
-  
+   
   configureRouter(config, router) {
     config.title = 'Daniel Sabbagh';
 
