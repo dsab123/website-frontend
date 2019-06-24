@@ -24,10 +24,10 @@ export class Blog {
         this.numberOfRelatedPostBlurbsToFetch = 5;
     }
 
-    async activate(urlParams, routeMap, navigationInstruction) {
+    activate(urlParams, routeMap, navigationInstruction) {
         // check for post id from router?
-        if (urlParams.postId) {
-            await this.getPostContents(urlParams.postId);
+        if (urlParams && urlParams.postId) {
+            this.getPostContents(urlParams.postId);
         } else {
             this.getPostContents();
         }
@@ -51,7 +51,7 @@ export class Blog {
     
         this.postApi.retrieveBlogPost(postId).then((data) => {
             let converter = new showdown.Converter({
-                simpleLineBreaks: 'true'
+                simpleLineBreaks: 'true' // TODO move this to config
             });
 
             // TODO check if data instance of blogPost
@@ -81,6 +81,8 @@ export class Blog {
         if (shouldShowRelatedPosts == true) {
             if (this.relatedPosts.length > 0) {
                 this.filteredRelatedPosts = this.relatedPosts.filter(post => post.metadata.tags.includes(postTag));
+                this.showRelatedPosts = true;
+            } else {
                 this.showRelatedPosts = true;
             }
         } 
