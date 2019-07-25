@@ -19,8 +19,7 @@ export class Blog {
         this.relatedPosts = [];
         this.filteredRelatedPosts = [];
         this.showRelatedPosts = false;
-        this.selectedRelatedPost = null;
-        this.postsTaggedPrefix = 'Posts tagged ';
+        this.selectedRelatedPostTag = null;
         this.numberOfRelatedPostBlurbsToFetch = 5;
     }
 
@@ -77,22 +76,25 @@ export class Blog {
         return 1;
     }
 
-    showRelatedPostsByTag(postTag, shouldShowRelatedPosts) {
+    showRelatedPostsByTag(relatedPostTag, shouldShowRelatedPosts) {
+        // user clicked on different postTag, but we still want to show related posts
+        if (shouldShowRelatedPosts == false && this.selectedRelatedPostTag != relatedPostTag) {
+            shouldShowRelatedPosts = true;
+        }
+
         if (shouldShowRelatedPosts == true) {
             if (this.relatedPosts.length > 0) {
-                this.filteredRelatedPosts = this.relatedPosts.filter(post => post.metadata.tags.includes(postTag));
+                this.filteredRelatedPosts = this.relatedPosts.filter(post => post.metadata.tags.includes(relatedPostTag));
                 this.showRelatedPosts = true;
             } else {
                 this.showRelatedPosts = true;
             }
-        } 
-
-        // only collapse the section if its the same postTag as before, and we were showing relatedPosts
-        if (this.selectedRelatedPost == postTag && this.showRelatedPosts == true) {
-            this.showRelatedPosts = shouldShowRelatedPosts;
+        } else {
+            // only collapse the section if its the same postTag as before, and we were showing relatedPosts
+            this.showRelatedPosts = false;
         }
 
-        this.selectedRelatedPost = postTag;
+        this.selectedRelatedPostTag = relatedPostTag;
     }
 
     resetScroll() {
