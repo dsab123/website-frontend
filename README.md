@@ -1,5 +1,6 @@
 
 [![CircleCI](https://circleci.com/gh/dsab123/website.svg?style=svg)](https://circleci.com/gh/dsab123/website)
+![CodeBuild](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiVmNHRUNhSmJ4Z2RCNW5sWHBVQjFrNlVjU1J0RTNEZHNVZjJyTi9iZ1lxTktoK1d0SUxuMzRjUWRvVzAzYWFndkh0clJzMHVYRGF5TmFuVTFEWk9naS9nPSIsIml2UGFyYW1ldGVyU3BlYyI6InBaTy8rMGhPdGhGZVVtYUUiLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
 -----------------------------
 
