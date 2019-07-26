@@ -15,7 +15,6 @@
     "babel-plugin-transform-regenerator": "^6.26.0",
     "bluebird": "^3.4.1",
     "fetch": "^1.1.0",
-    "marked": "^0.6.0",
     "pinkie-promise": "git+https://github.com/floatdrop/pinkie-promise.git",
     "prismjs": "^1.15.0",
     "regenerator-runtime": "^0.11.1",
