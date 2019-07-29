@@ -60,6 +60,7 @@
     "gulp-watch": "^4.3.11",
     "html-minifier": "^3.2.3",
     "jasmine-core": "^2.4.1",
+    "jest": "^24.8.0",
     "karma": "^0.13.22",
     "karma-babel-preprocessor": "^7.0.0",
     "karma-chrome-launcher": "^2.2.0",
@@ -70,5 +71,27 @@
     "through2": "^2.0.1",
     "uglify-js": "^3.0.19",
     "vinyl-fs": "^2.4.3"
+  },
+  "jest": {
+    "modulePaths": [
+      "<rootDir>/src",
+      "<rootDir>/node_modules"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json"
+    ],
+    "testRegex": "\\.spec\\.(ts|js)x?$",
+    "setupFiles": [
+      "<rootDir>/test/jest-pretest.js"
+    ],
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "aurelia-(.*)": "<rootDir>/node_modules/$1"
+    }
+  },
+  "scripts": {
+    "test": "jest --verbose",
+    "start": "au run --watch"
   }
 }
