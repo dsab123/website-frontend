@@ -85,10 +85,7 @@
     "setupFiles": [
       "<rootDir>/test/jest-pretest.js"
     ],
-    "testEnvironment": "node",
-    "moduleNameMapper": {
-      "aurelia-(.*)": "<rootDir>/node_modules/$1"
-    }
+    "testEnvironment": "node"
   },
   "scripts": {
     "test": "jest --verbose",
