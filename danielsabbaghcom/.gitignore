@@ -29,3 +29,6 @@ scripts
 
 # Other files
 package-lock.json
+
+# code coverage reports
+coverage
