@@ -90,7 +90,7 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "test": "jest --verbose || true",
+    "test": "jest --verbose --coverage",
     "start": "au run --watch",
     "build": "au build"
   }
