@@ -10,6 +10,7 @@
   "plugins": [
     "syntax-flow",
     "transform-flow-strip-types",
+    "transform-decorators-legacy",
     "transform-regenerator"
   ],
   "env" : {
