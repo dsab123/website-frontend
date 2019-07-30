@@ -25,7 +25,9 @@
   },
   "peerDependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/preset-env": "^7.5.5",
     "aurelia-cli": "^0.32.0",
     "aurelia-loader-nodejs": "^1.0.1",
     "aurelia-testing": "^1.0.0-beta.3.0.1",
@@ -61,7 +63,6 @@
     "gulp-watch": "^4.3.11",
     "html-minifier": "^3.2.3",
     "jasmine-core": "^2.4.1",
-    "jest": "^24.0.0",
     "karma": "^0.13.22",
     "karma-babel-preprocessor": "^7.0.0",
     "karma-chrome-launcher": "^2.2.0",
@@ -89,7 +90,7 @@
     "testEnvironment": "node"
   },
   "scripts": {
-    "test": "jest --verbose",
+    "test": "jest --verbose || true",
     "start": "au run --watch",
     "build": "au build"
   }
