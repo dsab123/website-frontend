@@ -10,13 +10,21 @@
   "plugins": [
     "syntax-flow",
     "transform-flow-strip-types",
-    "transform-decorators-legacy",
     "transform-regenerator"
   ],
   "env" : {
     "test": {
       "presets": ["env"],
       "plugins": [
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        "transform-class-properties",
+        "transform-object-rest-spread"
+      ]
+    },
+    "development": {
+      "presets": ["env"],
+      "plugins": [
+        "transform-decorators-legacy",
         "transform-class-properties",
         "transform-object-rest-spread"
       ]
