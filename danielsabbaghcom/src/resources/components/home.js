@@ -11,7 +11,10 @@ export class Home {
         this.postsList = [];
 
         this.isLoading = true;
-        this.loadingText = 'Loading';
+        this.initialLoadingText = "Loading";
+        this.loadingText = '';
+
+        this.loadingTextTagline = "(why is this loading taking so long? click \'About\'!)"
 
         this.numberOfRecentPostBlurbsToFetch = 10;
     }
@@ -45,7 +48,7 @@ export class Home {
         let count = 0;
 
         while (this.isLoading) {
-            this.loadingText = "Loading" + dots[count++ % 4];            
+            this.loadingText = this.initialLoadingText + dots[count++ % 4];            
             await this.sleep(400);
         }
     }

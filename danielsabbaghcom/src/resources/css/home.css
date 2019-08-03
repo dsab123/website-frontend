@@ -14,6 +14,11 @@
     font-family: var(--big-font-family);
 }
 
+.loading-text-tagline {
+    font-family: var(--small-font-family);
+    font-size: 12px;
+}
+
 .recent-posts-subtitle {
     font-family: var(--small-font-family);
 }
