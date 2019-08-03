@@ -1,5 +1,6 @@
 <template>
     <require from="../css/home.css"></require>
+    <require from="../value-converters/blog-post-blurb-prettifier"></require>
 
     <h2 class="page-title">Home</h2>
 
@@ -15,7 +16,7 @@
                 ${post.metadata.title}
                 <ul>
                     <li class="post-teaser">
-                        ${post.content}
+                        ${post.content | blogPostBlurbPrettifier}
                     </li>
                 </ul>
                 </a>
