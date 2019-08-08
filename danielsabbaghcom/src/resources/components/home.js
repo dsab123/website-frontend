@@ -24,7 +24,7 @@ export class Home {
     }
 
     async getMostRecentBlogPostBlurbs() {
-        for (let i = 0; i < this.numberOfRecentPostBlurbsToFetch; i++) {
+        for (let i = 1; i < this.numberOfRecentPostBlurbsToFetch; i++) {
 
             // TODO check if instanceof BlogPost
             await this.postApi.retrieveBlogPostBlurb(i).then((data) => {
@@ -48,7 +48,7 @@ export class Home {
         let count = 0;
 
         while (this.isLoading) {
-            this.loadingText = this.initialLoadingText + dots[count++ % 4];            
+            this.loadingText = this.initialLoadingText + dots[count++ % dots.length];            
             await this.sleep(400);
         }
     }
