@@ -9,7 +9,7 @@ export class PostApi extends Api {
     constructor() {
         super();
 
-        this.numberOfBlogPostBlurbsToFetch = 5;
+        this.numberOfBlogPostBlurbsToFetch = 7;
     }
     
     async retrieveBlogPost(blogPostId, qs = '') {
