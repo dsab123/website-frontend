@@ -1,6 +1,8 @@
 <template>
     <require from="../css/blog.css"></require>
     <require from="aurelia-markdown"></require>
+    <require from="../value-converters/blog-post-blurb-prettifier"></require>
+
     <div id="empty-div-hook-for-scrolling"></div>
 
     <h2 class="page-title">${postTitle}</h2>
@@ -21,14 +23,14 @@
 
     <!-- TODO when one of these are clicked, set relatedPosts to [] and scroll to top of page -->
     <div class="${showRelatedPosts ? 'preload-related-posts slide-related-posts-in related-posts' : 'preload-related-posts slide-related-posts-out related-posts'}">
-        <h4><span>Posts tagged: ${selectedRelatedPostTag}</span></h4>
+        <h4><span>other posts tagged: ${selectedRelatedPostTag}</span></h4>
         <ul>
             <li repeat.for="post of filteredRelatedPosts">
                 <a href="/#/blog/${post.id}" class="post-links">
                 ${post.metadata.title}
                 <ul>
                     <li>
-                        ${post.content}
+                        ${post.content | blogPostBlurbPrettifier}
                     </li>
                 </ul>
                 </a>
