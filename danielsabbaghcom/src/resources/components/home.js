@@ -24,7 +24,7 @@ export class Home {
     }
 
     async getMostRecentBlogPostBlurbs() {
-        for (let i = 1; i < this.numberOfRecentPostBlurbsToFetch; i++) {
+        for (let i = 0; i < this.numberOfRecentPostBlurbsToFetch; i++) {
 
             // TODO check if instanceof BlogPost
             await this.postApi.retrieveBlogPostBlurb(i).then((data) => {
