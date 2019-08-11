@@ -65,3 +65,10 @@
     color: var(--big-font-color);
     transform: rotate(4deg);
 }
+
+
+@media all and (max-width: 1024px) {
+    .converter {
+        display: none;
+    }
+}
