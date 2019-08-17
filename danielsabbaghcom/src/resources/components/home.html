@@ -1,6 +1,7 @@
 <template>
     <require from="../css/home.css"></require>
     <require from="../value-converters/blog-post-blurb-prettifier"></require>
+    <requore from="splash-text"></requore>
 
     <h2 class="page-title">Home</h2>
 
@@ -9,10 +10,10 @@
         <h4 class="loading-text-tagline">${loadingTextTagline}</h4>
     </div>
 
-    <div show.bind="isLoading">
-        <h3 class="loading-text">${loadingText}</h3>
-        <h4 class="loading-text-tagline">${loadingTextTagline}</h4>
-    </div>
+    <splash-text
+        initial-loading-text="initialLoadingText"
+        loading-text-tagline="loadingTextTagline">
+    </splash-text>
 
     <div show.bind="!isLoading">
         <h4 class="recent-posts-subtitle">Recent Posts</h4>

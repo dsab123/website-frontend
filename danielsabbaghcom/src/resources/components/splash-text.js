@@ -1,28 +1,24 @@
-// import {bindable} from 'aurelia-framework';
+import {bindable} from 'aurelia-framework';
 
-// export class SplashTextCustomElement {
-//     constructor() {
-//         @bindable loadingTextTagline;
-//         @bindable loadingText;
-        
-//         let passedIn = {};
-//         passedIn.loadingTextTagline = null;
-//         passedIn.loadingText = null;
+export class SplashTextCustomElement {
+    @bindable loadingTextTagline;
+    @bindable initialLoadingText;
 
-//         this.initialLoadingText = '';
-//     }
+    constructor() {
+        this.loadingText = '';
+    }
 
-//     bind(bindingContext, overrideContext) {
-//         this.spinLoadingText();
-//     }
+    bind(bindingContext, overrideContext) {
+        this.spinLoadingText();
+    }
 
-//     async spinLoadingText() {
-//         let dots = ['.', '..', '...', '..'];
-//         let count = 0;
+    async spinLoadingText() {
+        let dots = ['.', '..', '...', '..'];
+        let count = 0;
 
-//         while (true) {
-//             //loadingText = this.initialLoadingText + dots[count++ % dots.length];
-//             await this.sleep(400);
-//         }
-//     }
-// }
+        while (true) {
+            this.loadingText = this.initialLoadingText + dots[count++ % dots.length];
+            await this.sleep(400);
+        }
+    }
+}
