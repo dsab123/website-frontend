@@ -5,28 +5,42 @@
   "comments": false,
   "compact": false,
   "presets": [
-    "env"
+    "@babel/preset-env"
   ],
   "plugins": [
-    "syntax-flow",
-    "transform-flow-strip-types",
-    "transform-regenerator"
+    "@babel/plugin-syntax-flow",
+    "@babel/plugin-transform-flow-strip-types",
+    "@babel/plugin-transform-regenerator"
   ],
-  "env" : {
+  "env": {
     "test": {
-      "presets": ["env"],
+      "presets": [
+        "@babel/preset-env"
+      ],
       "plugins": [
-        "transform-decorators-legacy",
-        "transform-class-properties",
-        "transform-object-rest-spread"
+        [
+          "@babel/plugin-proposal-decorators",
+          {
+            "legacy": true
+          }
+        ],
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-object-rest-spread"
       ]
     },
     "development": {
-      "presets": ["env"],
+      "presets": [
+        "@babel/preset-env"
+      ],
       "plugins": [
-        "transform-decorators-legacy",
-        "transform-class-properties",
-        "transform-object-rest-spread"
+        [
+          "@babel/plugin-proposal-decorators",
+          {
+            "legacy": true
+          }
+        ],
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-proposal-object-rest-spread"
       ]
     }
   }
