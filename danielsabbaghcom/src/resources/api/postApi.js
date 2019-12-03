@@ -73,22 +73,4 @@ export class PostApi extends Api {
     
         return blogPostBlurbs;
     }
-/*
-    async fetchBlogPostBlurbsByTag(blogPostTag) {
-        let contents = [];
-
-        for (let i = 0; i < this.numberOfBlogPostBlurbsToFetch; i++) {
-            await this.httpClient.fetch('https://baconipsum.com/api/?type=meat-and-filler')
-                .then(response => {
-                    contents.push(response.json());
-                });        
-        }
-
-        for (let i = 0; i < contents.length; i++) {
-            Promise.resolve(contents[i]);
-        }
-
-        return contents;
-    }
-*/
 }
