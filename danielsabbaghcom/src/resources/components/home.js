@@ -16,7 +16,7 @@ export class Home {
 
         this.loadingTextTagline = "(why is this loading taking so long? click \'About\'!)"
 
-        this.numberOfRecentPostBlurbsToFetch = 10;
+        this.numberOfRecentPostBlurbsToFetch = 6;
     }
 
     sleep(milliseconds) {
