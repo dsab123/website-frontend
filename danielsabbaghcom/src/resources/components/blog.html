@@ -3,39 +3,43 @@
     <require from="aurelia-markdown"></require>
     <require from="../value-converters/blog-post-blurb-prettifier"></require>
 
-    <div id="empty-div-hook-for-scrolling"></div>
+    <div class="blog-layout">
 
-    <h2 class="page-title">${postTitle}</h2>
-    
-    <div class="${postContents ? 'preload-post slide-post-in post-contents' : 'preload-post post-contents'}"> 
-            <p class="${dimPostContents ? 'dim-overlay post-contents' : 'post-contents'}">
-                <markdown class="post-contents-container" ref="postContentsContainer">
-                </markdown>
-            </p>
-    </div>
+        <div id="empty-div-hook-for-scrolling"></div>
 
-    <br>
-    <div class="post-tags" show.bind="postTags">related:
-        <a class="post-tag" repeat.for="tag of postTags" click.delegate='showRelatedPostsByTag(tag, !showRelatedPosts)'>${tag}</a>
-    </div>
+        <h2 class="page-title">${postTitle}</h2>
+        
+        <div class="${postContents ? 'preload-post slide-post-in post-contents' : 'preload-post post-contents'}"> 
+                <p class="${dimPostContents ? 'dim-overlay post-contents' : 'post-contents'}">
+                    <markdown class="post-contents-container" ref="postContentsContainer">
+                    </markdown>
+                </p>
+        </div>
 
-    <br>
+        <br>
+        <div class="post-tags" show.bind="postTags">related:
+            <a class="post-tag" repeat.for="tag of postTags" click.delegate='showRelatedPostsByTag(tag, !showRelatedPosts)'>${tag}</a>
+        </div>
 
-    <!-- TODO when one of these are clicked, set relatedPosts to [] and scroll to top of page -->
-    <div class="${showRelatedPosts ? 'preload-related-posts slide-related-posts-in related-posts' : 'preload-related-posts slide-related-posts-out related-posts'}">
-        <h4><span>other posts tagged: ${selectedRelatedPostTag}</span></h4>
-        <ul>
-            <li repeat.for="post of filteredRelatedPosts">
-                <a href="/#/blog/${post.id}" class="post-links">
-                ${post.metadata.title}
-                <ul>
-                    <li>
-                        ${post.content | blogPostBlurbPrettifier}
-                    </li>
-                </ul>
-                </a>
-            </li>
-        </ul>
+        <br>
+
+        <!-- TODO when one of these are clicked, set relatedPosts to [] and scroll to top of page -->
+        <div class="${showRelatedPosts ? 'preload-related-posts slide-related-posts-in related-posts' : 'preload-related-posts slide-related-posts-out related-posts'}">
+            <h4><span>other posts tagged: ${selectedRelatedPostTag}</span></h4>
+            <ul>
+                <li repeat.for="post of filteredRelatedPosts">
+                    <a href="/#/blog/${post.id}" class="post-links">
+                    ${post.metadata.title}
+                    <ul>
+                        <li>
+                            ${post.content | blogPostBlurbPrettifier}
+                        </li>
+                    </ul>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
     </div>
 
 </template>

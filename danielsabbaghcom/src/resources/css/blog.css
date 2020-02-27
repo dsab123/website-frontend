@@ -95,9 +95,14 @@
 	margin-block-start: -1em;
 	margin-block-end: -1em;
 }
-/*
-.post-contents-container p {
-	margin-block-start: 2em;
-	margin-block-end: -1em;
+
+@media screen and (max-width: 768px) {
+	p {
+		font-size: 12px;
+	}
+
+	.blog-layout {
+		width: 90vw;
+		font-size: 12px;
+	}
 }
-*/

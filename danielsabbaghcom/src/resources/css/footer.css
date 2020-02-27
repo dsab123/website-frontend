@@ -17,7 +17,7 @@
     width: 50%;
 }
 
-.layout {
+.footer-layout {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
@@ -62,7 +62,7 @@ p {
         font-size: 12px;
     }
 
-    .layout {
+    .footer-layout {
         display: flex;
         flex-wrap: nowrap;
         justify-content: left;
