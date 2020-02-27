@@ -70,4 +70,8 @@ p {
         margin-right: 3px;
         width: 90vw
     }
+
+    .horizontal-separator {
+        width: 95vw
+    }
 }
