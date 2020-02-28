@@ -13,3 +13,13 @@ body {
     padding-bottom: 3px;
     margin-top: -8px;
 }
+
+@media screen and (max-width: 768px) {
+    .content {
+        width: 90vw;
+    }
+
+    code {
+        white-space: pre-wrap;
+    }
+}

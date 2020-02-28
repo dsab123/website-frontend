@@ -91,7 +91,7 @@
 }
 
 
-.post-contents-container  hr {
+.post-contents-container hr {
 	margin-block-start: -1em;
 	margin-block-end: -1em;
 }
@@ -108,5 +108,9 @@
 
 	.post-tag {
 		font-size: 12px;
+	}
+
+	.post-tags {
+		padding-bottom: 8px;
 	}
 }
