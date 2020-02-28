@@ -9,7 +9,7 @@
 }
 
 .personal-info {
-    float:left;
+    float: left;
     font-family: var(--small-font-family);
     margin-top: 20px;
     padding-left: 20px;
