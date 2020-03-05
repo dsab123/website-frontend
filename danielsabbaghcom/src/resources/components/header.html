@@ -3,7 +3,7 @@
 
     <require from="../value-converters/menu-filters"></require>
 
-    <div class="converter" click.delegate="flipConverter()">
+    <div class="converter" click.delegate="flipConverterText()">
         <img class="converter-arrow"src="../../../static/ugly-arrow.png" height="200" width="200">
         <p class="converter-text">${convertMenuItemsText}</p>
     </div>
@@ -11,11 +11,11 @@
     <div class="header-bar">
         <div class="logo-title">
             <a class="title" href="">${title}</a>
-            <div class="hamburger-container">
-                    <div class="bar1"></div>
-                    <div class="bar2"></div>
-                    <div class="bar3"></div>
-                </div>
+            <div class="${hamburgerOpen ? 'hamburger-container toggle' : 'hamburger-container'}" click.delegate="toggleHamburger()">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
         </div>
 
         <div class="header-top">

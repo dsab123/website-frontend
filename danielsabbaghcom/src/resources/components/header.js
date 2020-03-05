@@ -13,13 +13,20 @@ export class Header {
         this.convertMenuItemsTexts = ["click here, yo!", "click again to undo"];
         this.convertMenuItemsCounter = 0;
         this.convertMenuItemsText = this.convertMenuItemsTexts[this.convertMenuItemsCounter];
+
+        // hamburger
+        this.hamburgerOpen = false;
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
     }
 
-    flipConverter() {
+    flipConverterText() {
         this.convertNavItems = !this.convertNavItems;
         this.convertMenuItemsText = this.convertMenuItemsTexts[++this.convertMenuItemsCounter % 2];
+    }
+
+    toggleHamburger() {
+        this.hamburgerOpen = !this.hamburgerOpen;
     }
 }
