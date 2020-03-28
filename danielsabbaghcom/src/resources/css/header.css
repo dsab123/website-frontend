@@ -70,6 +70,18 @@
     display: none;
 }
 
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+
+    max-height: 0px;
+    transition-property: all;
+    transition-duration: .5s;
+    transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+    overflow-y: hidden;
+}
+
 @media all and (max-width: 1024px) {
     .converter {
         display: none;
@@ -97,18 +109,7 @@
         float: right;
         display: inline-block;
     }
-    
-    .hamburger-menu {
-        display: none;
-        flex-direction: column;
-        text-align: center;
 
-        max-height: 0px;
-        transition-property: all;
-        transition-duration: .5s;
-        transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-        overflow-y: hidden;
-    }
     
     /* hamburger menu */
     .slide-hamburger-menu-in {
