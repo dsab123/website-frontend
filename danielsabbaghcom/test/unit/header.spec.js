@@ -20,7 +20,7 @@ describe('Header Component', () => {
       var oldConvertNavItemsValue = header.convertNavItems;
 
       // act
-      header.flipConverter();
+      header.flipConverterText();
       
       // assert
       var currentOldConvertNavItemsValue = header.convertNavItems;
