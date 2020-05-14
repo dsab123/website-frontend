@@ -12,6 +12,16 @@ export class PostApi extends Api {
         this.numberOfBlogPostBlurbsToFetch = 7;
     }
     
+    async getBlogPostLookup() {
+        let contents = [];
+        await this.httpClient.fetch(`${this.baseUrl}blogpost-lookup`)
+        .then(response => {
+            contents = response.json();
+        });
+
+        return contents;
+    }
+
     async retrieveBlogPost(blogPostId, qs = '') {
 
         let contents = await this.fetchBlogPost(blogPostId, qs);

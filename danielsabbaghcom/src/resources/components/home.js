@@ -15,30 +15,22 @@ export class Home {
         this.loadingText = '';
 
         this.loadingTextTagline = "(why is this loading taking so long? click \'About\'!)"
-
-        this.numberOfRecentPostBlurbsToFetch = 10;
     }
 
     sleep(milliseconds) {
         return new Promise(resolve => setTimeout(resolve, milliseconds))
     }
 
-    async getMostRecentBlogPostBlurbs() {
-        for (let i = 0; i < this.numberOfRecentPostBlurbsToFetch; i++) {
-
-            // TODO check if instanceof BlogPost
-            await this.postApi.retrieveBlogPostBlurb(i).then((data) => {
-                if (data.id != -1) {
-                    this.postsList.push(data);
-                }
-            });
-        }
+    async getBlogPostMetadata() {
+        await this.postApi.getBlogPostLookup().then((data) => {
+            this.postsList = data;
+        });
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
         this.spinLoadingText();
 
-        this.getMostRecentBlogPostBlurbs().then(() => {
+        this.getBlogPostMetadata().then(() => {
             this.isLoading = false;
         });
     }
