@@ -9,7 +9,6 @@
 }
 
 .personal-info {
-    float: left;
     font-family: var(--small-font-family);
     margin-top: 20px;
     padding-left: 20px;
@@ -28,10 +27,25 @@
 .headshot {
     margin-top: 15px;
     margin-right: 20px;
-    float: left;
     border-radius: 50%;
     width: 150px;
     height: 150px;
+}
+
+.contact-links {
+    display: flex;
+}
+
+.contact-list {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.coffee-cup {
+    height: 18px;
+    width: 15px;
+    vertical-align: middle;
 }
 
 p {
@@ -43,14 +57,12 @@ p {
     .headshot {
         margin-top: 15px;
         margin-right: 20px;
-        float: left;
         border-radius: 50%;
         width: 50px;
         height: 50px;
     }
 
     .personal-info {
-        float:left;
         font-family: var(--small-font-family);
         margin-top: 10px;
         padding-left: 0px;
@@ -72,5 +84,14 @@ p {
 
     .horizontal-separator {
         width: 92vw;
+    }
+
+    .contact-links {
+        flex-direction: row;
+    }
+
+    .contact-list-item {
+        float: left;
+        padding-right: 5px;
     }
 }
