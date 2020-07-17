@@ -1,6 +1,5 @@
 import {noView} from 'aurelia-framework';
 import {BlogPost} from '../models/blogPost';
-import {Metadata} from '../models/metadata';
 import {BlogPostBlurb} from '../models/blogPostBlurb';
 import {Api} from './api';
 
@@ -30,11 +29,9 @@ export class PostApi extends Api {
             return new BlogPost({
                 id: contents.id,
                 content: contents.content,
-                metadata: new Metadata({
-                    id: contents.id,
-                    title: contents.metadata.title,
-                    tags: contents.metadata.tags
-                }),
+                title: contents.title,
+                tags: contents.tags,
+                slug: contents.slug,
                 relatedPosts: contents.relatedPosts
             });
         } else {

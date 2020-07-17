@@ -29,7 +29,7 @@
             <ul>
                 <li repeat.for="post of filteredRelatedPosts">
                     <a href="/#/blog/${post.id}" class="post-links">
-                    ${post.metadata.title}
+                    ${post.title}
                     <ul>
                         <li>
                             ${post.content | blogPostBlurbPrettifier}

@@ -57,8 +57,8 @@ export class Blog {
             this.postContents = converter.makeHtml(data.content);
             this.setPostContentsContainer();
 
-            this.postTitle = data.metadata.title;
-            this.postTags = data.metadata.tags;
+            this.postTitle = data.title;
+            this.postTags = data.tags;
             this.relatedPosts = data.relatedPosts;
 
             // undim post contents
@@ -84,7 +84,7 @@ export class Blog {
 
         if (shouldShowRelatedPosts == true) {
             if (this.relatedPosts.length > 0) {
-                this.filteredRelatedPosts = this.relatedPosts.filter(post => post.metadata.tags.includes(relatedPostTag));
+                this.filteredRelatedPosts = this.relatedPosts.filter(post => post.tags.includes(relatedPostTag));
                 this.showRelatedPosts = true;
             } else {
                 this.showRelatedPosts = true;

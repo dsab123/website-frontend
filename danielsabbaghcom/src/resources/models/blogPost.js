@@ -1,13 +1,11 @@
-import { Metadata } from "./metadata";
 
 export class BlogPost {
     constructor(data = {}) {
-        this.id = 0; // an id of -1 is essentially an error object
+        this.id = 0; 
         this.content = '';
-        this.blurb = false;
-        
-        this.metadata = new Metadata();
-
+        this.slug = '';
+        this.title = '';
+        this.tags = '';
         this.relatedPosts = {};
         Object.assign(this, data);
     }
@@ -15,11 +13,9 @@ export class BlogPost {
     static createErrorBlogPost() {
         let blogPost = new BlogPost();
         blogPost.id = -1;
-        blogPost.content = 'Looks like there was an error somewhere. \n\nShhh.\n\nDon\'t tell anyone.',
-        blogPost.metadata = {
-            'title' : 'Whoops, something happened',
-            'tags' : ['error handling']
-        }
+        blogPost.content = 'Looks like there was an error somewhere. \n\nShhh.\n\nDon\'t tell anyone.';
+        blogPost.title = 'Whoops, something happened';
+        blogPost.tags = ['error handling'];
         
         return blogPost;
     }
