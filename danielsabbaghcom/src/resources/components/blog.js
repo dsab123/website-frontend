@@ -24,22 +24,17 @@ export class Blog {
     }
 
     activate(urlParams, routeMap, navigationInstruction) {
-        // check for post id from router?
         if (urlParams && urlParams.postId) {
             this.getPostContents(urlParams.postId);
         } else {
             this.getPostContents();
         }
-        
-        // cannot use this here because window is not available at this point?
-        //this.resetScroll();
     }
 
     attached() {
         this.setPostContentsContainer();
     }
 
-    // TODO probs don't need this async prefix
     async getPostContents(postId) {
         // dim postContents to indicate new post incoming
         this.dimPostContents = true;
@@ -53,7 +48,6 @@ export class Blog {
                 simpleLineBreaks: 'true' // TODO move this to config
             });
 
-            // TODO check if data instance of blogPost
             this.postContents = converter.makeHtml(data.content);
             this.setPostContentsContainer();
 
