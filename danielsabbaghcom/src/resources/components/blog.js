@@ -83,7 +83,7 @@ export class Blog {
         }
 
         if (shouldShowRelatedPosts == true) {
-            if (this.relatedPosts.length > 0) {
+            if (this.relatedPosts && this.relatedPosts.length > 0) {
                 this.filteredRelatedPosts = this.relatedPosts.filter(post => post.tags.includes(relatedPostTag));
                 this.showRelatedPosts = true;
             } else {
