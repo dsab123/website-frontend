@@ -21,11 +21,11 @@ export class App {
         title: 'About'
       },
       {
-        route: 'blog/:postId?',
+        route: 'blog/:postId?/:slug?',
         name: 'blog',
         nav: true,
         moduleId: 'resources/components/blog',
-        title: 'Blog', // how to get post name in here? might have to do in the post logic
+        title: 'Blog',
         href: '/blog'
       },
       {

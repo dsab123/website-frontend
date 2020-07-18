@@ -54,30 +54,4 @@ export class PostApi extends Api {
 
         return contents;
     }
-
-    async retrieveBlogPostBlurb(blogPostId) {
-        let qs = "?blurb=true"; // gotta be a better way
- 
-        return this.retrieveBlogPost(blogPostId, qs);
-    }
-
-    async retrieveBlogPostBlurbsByTag(blogPostTag) {
-        let blogPostBlurbs = [];
-        // soon will be: 
-        //let contents = await this.fetchBlogPostBlurbsByTag(blogPostTag);
-        let contents = new Array(5);
-
-        for (let i = 0; i < contents.length; i++) {
-
-            // TODO when the back end is done, the marshaling will move upstream
-            // to the 'fetch' methods
-            blogPostBlurbs.push(new BlogPostBlurb({
-                id: i, 
-                title: `Fake Post ${i}`, 
-                teaser: "in a land far far away, where the back end is completed..."
-            }));
-        }
-    
-        return blogPostBlurbs;
-    }
 }
