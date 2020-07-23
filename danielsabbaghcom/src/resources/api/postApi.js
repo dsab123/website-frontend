@@ -21,9 +21,18 @@ export class PostApi extends Api {
         return contents;
     }
 
-    async retrieveBlogPost(blogPostId, qs = '') {
+    async getBlogPost(blogPostId, qs = '') {
+        if (isNaN(blogPostId)) {
+            return null;
+        }
 
-        let contents = await this.fetchBlogPost(blogPostId, qs);
+        let url = `${this.baseUrl}blogpost/${blogPostId}${qs}`;
+        let contents = null;
+
+        await this.httpClient.fetch(url)
+            .then(response => {
+                contents = response.json();
+            });           
 
         if (contents != null) {
             return new BlogPost({
@@ -39,19 +48,5 @@ export class PostApi extends Api {
         }
     }
 
-    async fetchBlogPost(blogPostId, qs) {
-        let contents = '';
-
-        if (isNaN(blogPostId)) {
-            return null;
-        }
-
-        let url = `${this.baseUrl}blogpost/${blogPostId}${qs}`;
-        await this.httpClient.fetch(url)
-            .then(response => {
-                contents = response.json();
-            });                    
-
-        return contents;
-    }
+    async 
 }

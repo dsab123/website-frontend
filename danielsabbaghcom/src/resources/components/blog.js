@@ -43,7 +43,7 @@ export class Blog {
             postId = this.getDefaultPostId();
         }
     
-        this.postApi.retrieveBlogPost(postId).then((data) => {
+        this.postApi.getBlogPost(postId).then((data) => {
             let converter = new showdown.Converter({
                 simpleLineBreaks: 'true' // TODO move this to config
             });
