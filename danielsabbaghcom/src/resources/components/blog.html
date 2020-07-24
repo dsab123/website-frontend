@@ -27,12 +27,12 @@
         <div class="${showRelatedPosts ? 'preload-related-posts slide-related-posts-in related-posts' : 'preload-related-posts slide-related-posts-out related-posts'}">
             <h4><span>other posts tagged: ${selectedRelatedPostTag}</span></h4>
             <ul>
-                <li repeat.for="post of filteredRelatedPosts">
+                <li repeat.for="post of relatedPosts">
                     <a href="/#/blog/${post.id}" class="post-links">
                     ${post.title}
                     <ul>
                         <li>
-                            ${post.content | blogPostBlurbPrettifier}
+                            ${post.teaser | blogPostBlurbPrettifier}
                         </li>
                     </ul>
                     </a>

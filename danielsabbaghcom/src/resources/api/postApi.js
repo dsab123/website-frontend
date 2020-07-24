@@ -21,18 +21,9 @@ export class PostApi extends Api {
         return contents;
     }
 
-    async getBlogPost(blogPostId, qs = '') {
-        if (isNaN(blogPostId)) {
-            return null;
-        }
+    async retrieveBlogPost(blogPostId, qs = '') {
 
-        let url = `${this.baseUrl}blogpost/${blogPostId}${qs}`;
-        let contents = null;
-
-        await this.httpClient.fetch(url)
-            .then(response => {
-                contents = response.json();
-            });           
+        let contents = await this.fetchBlogPost(blogPostId, qs);
 
         if (contents != null) {
             return new BlogPost({
@@ -48,5 +39,31 @@ export class PostApi extends Api {
         }
     }
 
-    async 
+    async fetchBlogPost(blogPostId, qs) {
+        let contents = '';
+
+        if (isNaN(blogPostId)) {
+            return null;
+        }
+
+        let url = `${this.baseUrl}blogpost/${blogPostId}${qs}`;
+        await this.httpClient.fetch(url)
+            .then(response => {
+                contents = response.json();
+            });                    
+
+        return contents;
+    }
+
+    async getRelatedPostsByTag(tagName) {
+        let url = `${this.baseUrl}tags/${tagName}`;
+        let contents = [];
+
+        await this.httpClient.fetch(url)
+        .then(response => {
+            contents = response.json();
+        })
+
+        return contents;
+    }   
 }

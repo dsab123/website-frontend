@@ -43,7 +43,7 @@ export class Blog {
             postId = this.getDefaultPostId();
         }
     
-        this.postApi.getBlogPost(postId).then((data) => {
+        this.postApi.retrieveBlogPost(postId).then((data) => {
             let converter = new showdown.Converter({
                 simpleLineBreaks: 'true' // TODO move this to config
             });
@@ -53,7 +53,6 @@ export class Blog {
 
             this.postTitle = data.title;
             this.postTags = data.tags;
-            this.relatedPosts = data.relatedPosts;
 
             // undim post contents
             this.dimPostContents = false;
@@ -70,21 +69,20 @@ export class Blog {
         return 1;
     }
 
-    showRelatedPostsByTag(relatedPostTag, shouldShowRelatedPosts) {
-        // user clicked on different postTag, but we still want to show related posts
-        if (shouldShowRelatedPosts == false && this.selectedRelatedPostTag != relatedPostTag) {
-            shouldShowRelatedPosts = true;
-        }
-
-        if (shouldShowRelatedPosts == true) {
+    async showRelatedPostsByTag(relatedPostTag, shouldShowRelatedPosts) {
+        if (this.selectedRelatedPostTag == null || this.selectedRelatedPostTag != relatedPostTag) {
+            // if selected related tag is null, user hasn't clicked one yet; if this, or if
+            // they're clicking on a new tag, load new tags
+            this.relatedPosts = await this.postApi.getRelatedPostsByTag(relatedPostTag);
+            this.showRelatedPosts = true;
+        } else if (shouldShowRelatedPosts == true && this.selectedRelatedPostTag == relatedPostTag) {    
+            // if we want to show related posts, and the new tag is the same as the old, we will
+            // have already loaded the related posts, so just show them
             if (this.relatedPosts && this.relatedPosts.length > 0) {
-                this.filteredRelatedPosts = this.relatedPosts.filter(post => post.tags.includes(relatedPostTag));
-                this.showRelatedPosts = true;
-            } else {
                 this.showRelatedPosts = true;
             }
         } else {
-            // only collapse the section if its the same postTag as before, and we were showing relatedPosts
+            // only collapse the section if its the same tag as before, and we were showing relatedPosts
             this.showRelatedPosts = false;
         }
 
