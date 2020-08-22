@@ -90,10 +90,14 @@
 	margin-block-start: -1em;
 }
 
-
 .post-contents-container hr {
 	margin-block-start: -1em;
 	margin-block-end: -1em;
+}
+
+.money-plea {
+	font-style: italic;
+	font-family: var(--small-font-family);	
 }
 
 @media screen and (max-width: 768px) {

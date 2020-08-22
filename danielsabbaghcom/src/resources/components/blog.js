@@ -13,6 +13,7 @@ export class Blog {
         this.postContents = null;
         this.postTags = null;
         this.dimPostContents = false;
+        this.isPostLoaded = false;
 
         // properties for related posts by tag
         this.relatedPosts = [];
@@ -55,6 +56,7 @@ export class Blog {
 
             // undim post contents
             this.dimPostContents = false;
+            this.isPostLoaded = true;
         });
     }
 
