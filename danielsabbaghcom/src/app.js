@@ -34,6 +34,13 @@ export class App {
         nav: true,
         moduleId: 'resources/components/talks',
         title: 'Talks'
+      },
+      {
+        route: 'summaries',
+        name: 'summaries',
+        nav: true,
+        moduleId: 'resources/components/summaries',
+        title: 'Books'
       }
     ]);
     this.router = router;
