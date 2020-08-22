@@ -1,6 +1,5 @@
 import {inject} from 'aurelia-framework';
 import {PostApi} from '../api/postApi';
-import {BlogPostBlurb} from '../models/blogPostBlurb';
 let showdown = require('showdown');
 
 @inject(PostApi)
