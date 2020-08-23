@@ -96,7 +96,6 @@
     .card-text {
         display: flex;
         flex-direction: column;
-        justify-content: ;
         align-items: center;
         padding-left: 10px;
         max-width: 18em;
