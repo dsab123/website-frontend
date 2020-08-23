@@ -7,10 +7,10 @@ export class App {
 
     config.map([
       {
-        route: ['', 'home'], 
+        route: ['', 'home', 'summaries'], 
         name: 'home',
         nav: true, 
-        moduleId: 'resources/components/home', 
+        moduleId: 'resources/components/summaries', 
         title: 'Home'
       },
       {
@@ -21,9 +21,16 @@ export class App {
         title: 'About'
       },
       {
-        route: 'blog/:postId?/:slug?',
+        route: 'blogs',
         name: 'blog',
         nav: true,
+        moduleId: 'resources/components/blogs',
+        title: 'Blogs'
+      },
+      {
+        route: 'blog/:postId?/:slug?',
+        name: 'blog',
+        nav: false,
         moduleId: 'resources/components/blog',
         title: 'Blog',
         href: '/blog'
@@ -33,7 +40,7 @@ export class App {
         name: 'talks',
         nav: true,
         moduleId: 'resources/components/talks',
-        title: 'Talks'
+        title: 'Talks'      
       },
       {
         route: 'summaries',
