@@ -1,5 +1,5 @@
 export class Footer {
     constructor() {
-        this.blurbText = "Adventures of a software developer who has climbed up the stack from C to Javascript; currently doing cool full-stack things. dsabbaghumd AT gmail.";
+        this.blurbText = "Hi! I'm a software engineer who blogs about cool full-stack things. I also write book reviews. Email me! dsabbaghumd AT gmail.";
     }
 }
