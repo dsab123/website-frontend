@@ -56,7 +56,6 @@
     background: var(--post-tag-color);
     padding: 8px;
     text-decoration: none;
-    cursor: pointer;
     font-family: var(--big-font-family);
     color: var(--big-font-color);
     font-size: 14px;
@@ -64,6 +63,11 @@
 
 .post-links {
     text-decoration: none;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
 }
 
 .amazon-link {

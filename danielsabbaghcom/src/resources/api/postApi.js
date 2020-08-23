@@ -1,6 +1,5 @@
 import {noView} from 'aurelia-framework';
 import {BlogPost} from '../models/blogPost';
-import {BlogPostBlurb} from '../models/blogPostBlurb';
 import {Api} from './api';
 
 @noView
@@ -15,6 +14,18 @@ export class PostApi extends Api {
         let contents = [];
         await this.httpClient.fetch(`${this.baseUrl}blogpost-lookup`)
         .then(response => {
+            contents = response.json();
+        });
+
+        return contents;
+    }
+
+    async getBookSummaryLookup() {
+        let contents = [];
+        // NOTE: not using fetch() for these because the fetch client
+        // converts the response into a stupid ReadableStream, which I abhor
+        await this.httpClient.get(`${this.baseUrl}booksummary-lookup`)
+        .then(response =>  {
             contents = response.json();
         });
 
