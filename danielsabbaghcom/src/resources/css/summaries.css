@@ -29,6 +29,13 @@
     font-family: var(--small-font-family);
 }
 
+.money-plea {
+    font-size: 14px;
+    font-style: italic;
+    font-family: var(--small-font-family);
+    text-decoration: none;
+}
+
 .card {
     margin-bottom: 20px;
     display: flex;
