@@ -25,7 +25,7 @@ export class App {
         name: 'blog',
         nav: true,
         moduleId: 'resources/components/blogs',
-        title: 'Blogs'
+        title: 'Blog'
       },
       {
         route: 'blog/:postId?/:slug?',
@@ -34,6 +34,14 @@ export class App {
         moduleId: 'resources/components/blog',
         title: 'Blog',
         href: '/blog'
+      },
+      {
+        route: 'summary/:summaryId?/:slug?',
+        name: 'summary',
+        nav: false,
+        moduleId: 'resources/components/summary',
+        title: 'Book Summary',
+        href: '/summary'
       },
       {
         route: 'talks',

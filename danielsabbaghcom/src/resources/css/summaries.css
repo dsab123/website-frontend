@@ -24,7 +24,12 @@
     font-size: 1.2em;
 }
 
-.disclaimer-text, .book-summary {
+.disclaimer-text {
+    font-style: italic;
+    font-family: var(--small-font-family);
+}
+
+.book-summary {
     font-style: italic;
     font-family: var(--small-font-family);
 }
@@ -88,10 +93,6 @@
 }
 
 @media screen and (max-width: 768px) {
-	p {
-		font-size: 12px;
-    }
-    
     .book-title {
         font-size: 15px;
     }
@@ -116,6 +117,12 @@
         height: auto;
         width: 18em;
         border-radius: 5px;
+    }
+
+    .book-summary {
+        font-style: italic;
+        font-family: var(--small-font-family);
+        font-size: 14px;
     }
 
     .summary-detail {

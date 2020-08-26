@@ -18,7 +18,8 @@
                     <p class="book-summary">${summary.teaser}</p>
                     <div class="summary-detail">
                         <p class="${summary.is_ready ? 'read-more' : 'hidden'}">
-                            <a class="post-links" href="#" target="_blank">
+                            <!--<a class="post-links" href="/#/summary/${summary.summary_id}/${summary.slug}">-->
+                            <a class="post-links" click.delegate='populateBookSummary(summary.summary_id)'>
                                 read more
                             </a>
                         </p>

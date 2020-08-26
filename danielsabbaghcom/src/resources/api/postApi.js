@@ -32,6 +32,18 @@ export class PostApi extends Api {
         return contents;
     }
 
+    async getBookSummaryInfo(summaryId) {
+        let contents = [];
+        // NOTE: not using fetch() for these because the fetch client
+        // converts the response into a stupid ReadableStream, which I abhor
+        await this.httpClient.get(`${this.baseUrl}booksummary?summary_id=${summaryId}`)
+        .then(response =>  {
+            contents = response.json();
+        });
+
+        return contents;
+    }
+
     async retrieveBlogPost(blogPostId, qs = '') {
 
         let contents = await this.fetchBlogPost(blogPostId, qs);
